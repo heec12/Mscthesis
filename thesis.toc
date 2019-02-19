@@ -1,8 +1,0 @@
-\contentsline {chapter}{List of Figures}{v}
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Methods}{3}
-\contentsline {chapter}{\numberline {3}Results}{7}
-\contentsline {section}{\numberline {}Fault evolution}{7}
-\contentsline {section}{\numberline {}Thermal state}{7}
-\contentsline {chapter}{\numberline {4}Discussion}{8}
-\contentsline {chapter}{\numberline {5}Conclusion}{9}
