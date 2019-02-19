@@ -1,23 +1,8 @@
-\contentsline {chapter}{List of Figures}{vi}
+\contentsline {chapter}{List of Figures}{v}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Approaches}{5}
-\contentsline {chapter}{\numberline {3}Data Preparation}{8}
-\contentsline {section}{\numberline {}Selection criteria}{8}
-\contentsline {section}{\numberline {}Determination of optimal parameters}{10}
-\contentsline {chapter}{\numberline {4}Analysis and Results}{14}
-\contentsline {section}{\numberline {}JHD relocation analysis}{14}
-\contentsline {subsection}{\numberline {}Results}{14}
-\contentsline {subsection}{\numberline {}Discussions}{18}
-\contentsline {section}{\numberline {}Checkerboard resolution test}{21}
-\contentsline {subsection}{\numberline {}Results}{21}
-\contentsline {subsection}{\numberline {}Discussions}{25}
-\contentsline {section}{\numberline {}Design of an initial 3-D model}{27}
-\contentsline {subsection}{\numberline {}Results}{27}
-\contentsline {subsection}{\numberline {}Discussions}{29}
-\contentsline {section}{\numberline {}3-D tomographic inversion}{32}
-\contentsline {subsection}{\numberline {}Results}{32}
-\contentsline {subsection}{\numberline {}Discussions}{36}
-\contentsline {section}{\numberline {}Earthquake relocation using resultant 3-D model}{39}
-\contentsline {subsection}{\numberline {}Results}{39}
-\contentsline {subsection}{\numberline {}Dicussions}{41}
-\contentsline {chapter}{\numberline {5}Conclusions}{46}
+\contentsline {chapter}{\numberline {2}Methods}{3}
+\contentsline {chapter}{\numberline {3}Results}{7}
+\contentsline {section}{\numberline {}Fault evolution}{7}
+\contentsline {section}{\numberline {}Thermal state}{7}
+\contentsline {chapter}{\numberline {4}Discussion}{8}
+\contentsline {chapter}{\numberline {5}Conclusion}{9}

@@ -1,46 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: document.aux
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
 The style file: agsm.bst.bst
 Database file #1: references.bib
-You've used 40 entries,
+Warning--empty publisher in Peltier1989
+You've used 16 entries,
             2896 wiz_defined-function locations,
-            887 strings with 12706 characters,
-and the built_in function-call counts, 201833 in all, are:
-= -- 32772
-> -- 3082
+            758 strings with 8420 characters,
+and the built_in function-call counts, 95768 in all, are:
+= -- 15797
+> -- 1312
 < -- 0
-+ -- 15928
-- -- 956
-* -- 18026
-:= -- 39962
-add.period$ -- 40
-call.type$ -- 40
-change.case$ -- 560
-chr.to.int$ -- 40
-cite$ -- 40
-duplicate$ -- 638
-empty$ -- 1437
-format.name$ -- 1096
-if$ -- 36199
++ -- 7746
+- -- 406
+* -- 8544
+:= -- 18754
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 222
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 271
+empty$ -- 544
+format.name$ -- 460
+if$ -- 17225
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 40
-newline$ -- 123
-num.names$ -- 418
-pop$ -- 102
+missing$ -- 18
+newline$ -- 57
+num.names$ -- 170
+pop$ -- 57
 preamble$ -- 1
-purify$ -- 600
+purify$ -- 240
 quote$ -- 0
-skip$ -- 542
+skip$ -- 230
 stack$ -- 0
-substring$ -- 46912
-swap$ -- 119
-text.length$ -- 560
+substring$ -- 22718
+swap$ -- 57
+text.length$ -- 224
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 160
-warning$ -- 0
-while$ -- 917
+type$ -- 60
+warning$ -- 1
+while$ -- 363
 width$ -- 0
-write$ -- 518
+write$ -- 221
+(There was 1 warning)
