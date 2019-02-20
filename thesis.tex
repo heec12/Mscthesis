@@ -155,34 +155,36 @@ Magmatism at the spreading center of mid-ocean ridges plays an essential role in
 % Net force applying at the boundaries are 
 \subsection{Numerical approach and model setup}
 The FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of mass
-
-$
-\displaystyle \frac{\partial v_i}{\partial x_i} = 0
-$
-
+\begin{align}
+\frac{\partial v_i}{\partial x_i} & = 0
+\end{align}
 \noindent and momentum
-
-$
-\displaystyle  \frac{D v_i}{D t} = \frac{\partial \sigma_{ij}}{\partial x_{j}} + \rho g
-$
-
+\begin{align}
+ \frac{D v_i}{D t} & = \frac{\partial \sigma_{ij}}{\partial x_{j}} + \rho g
+\end{align}
 \noindent for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Lavier2002}. By solving the conservation of momentum, the accelerations are integrated in time to give updated velocities, strains and strain rates. In addition, using the constitutive laws the strains and strain rates are used to calculate new elastic and viscous stresses. These stresses are used to determine the accelerations for the next step of calculation.
 
-For visco-elastic deformation, the material behaves as a Maxwell solid. I follow the dry diabase power law rheology \citep{Kirby1987, Chen1990}. Plastic yielding is controlled by Mohr-coulomb theory, in which cohesion is a function of the total accumulated plastic strain \citep{Poliakov1998}. Cohesion decreases linearly from its initial value 44 MPa to minimum value of 4 MPa.
-
-The model domain is rectangular with centered ridge axis. All models have 60km wide and 20km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, boundary force is defined by averaging internal force from the mature stage (Figure \ref{fig:faultstage}B) of the fault to the moment of incipient stage (Figure \ref{fig:faultstage}A) of the fault on the other side and I use residual force defined as subtracting constant boundary force from internal force.
-
-$F_{res} = F_{int} - F_{bdy}$ 
+For visco-elastic deformation, the material behaves as a Maxwell solid. I follow the dry diabase power law rheology \citep{Kirby1987, Chen1990}. Plastic yielding is controlled by Mohr-coulomb theory, in which cohesion is a function of the total accumulated plastic strain \citep{Poliakov1998}. Cohesion decreases linearly from its initial value 44 MPa to the minimum value of 4 MPa.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/fault_stage.pdf}
-	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages: \textbf{A.} Incipient stage \textbf{B.} Mature stage \textbf{C.} Terminal stage }
+	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages. \textbf{A.} Incipient stage: new fault occurs on left side of the ridge axis.  \textbf{B.} Mature stage: fault heave increases and fault dip decreases as fault grows. \textbf{C.} Terminal stage: fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis.}
 	\label{fig:faultstage}
 \end{figure}
 
-%At the top boundary I use a free surface while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation, where in- and outflow of material is accounted for during re-meshing. Deformation is accommodated by elasto-visco-plastic rheology so that the model self-consistently reproduces diverse lithospheric-scale deformation processes such as faulting, flexure and lower crustal flow. Viscous flow occurs via two creep mechanisms: diffusion and dislocation creep. The Mohr-Coulomb failure model is implemented for brittle deformation.
+The model domain is rectangular with centered ridge axis. All models have 60km wide and 20km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, boundary force for force boundary conditioned model is defined by averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault (Figure \ref{fig:faultstage}A) on the other side of the ridge axis. I use residual force defined as a sum of constant boundary force and internal force.
 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\linewidth]{./figs/force.pdf}
+	\caption{ Schematic illustration of the internal forces and boundary forces applying to the model.}
+	\label{fig:forcescheme}
+\end{figure}
+\begin{align}
+F_{res} & = F_{int} + F_{bdy} \\
+ & = F_{fault} + F_{elst} + F_{visc} + F_{bdy}
+\end{align}
 
 \chapter{Results}
 
