@@ -150,7 +150,14 @@ These previous studies have assumed the accretion of oceanic lithosphere at spre
 Recently from CREST expedition, \citet{Fedotova2017} observed the half-spreading rate, time to form abyssal hills and abyssal hill height vary on time  (Figure \ref{fig:hsr_fedotova}). %\note[EC]{Either combine these two figures into one or discuss them separately in separate paragraphs. Also, don't just throw figures in and leave readers unguided. The purpose and contents of a figure should be stated.} 
 If plate grows at a constant rate, spreading rate and required time to form abyssal hill as time goes on will be a constant as well. Abyssal hill height will be plotted as a sinusoidal curve with regular amplitude and frequency by assuming uniform plate spreading. These observed data indicate that not only asymmetric between left and right plates from spreading center but also non-uniform plate growing behavior is observed on the seafloor.
 
-Continental rifts, another type of divergent plate boundary, has recently been shown to form slowly during the incipient stage and accelerate later \citep{Brune2016}. Based on the kinematic modeling based on plate motion inversion data from the major passive margins North Atlantic, North America – Greenland, Australia – Antarctica, and the South China sea, \citet{Brune2016} identified several rapid changes in absolute plate motion from the extension records in the major passive margins around the world, which have not been explained previously. They explained the multi-phase rifting as a result of the \annote[EC]{interaction}{What you mean by interaction needs elucidation. Exactly what happened?} between the evolving strength of a rift zone and forces pulling the plates apart.
+Continental rifts, another type of divergent plate boundary, has recently been shown to form slowly during the incipient stage and accelerate later \citep{Brune2016}. Based on the kinematic modeling based on plate motion inversion data from the major passive margins North Atlantic, North America – Greenland, Australia – Antarctica, and the South China sea, \citet{Brune2016} identified several rapid changes in absolute plate motion from the extension records in the major passive margins around the world, which have not been explained previously. They explained the multi-phase rifting as a result of the interaction between the evolving strength of a rift zone and forces pulling the plates apart. At the initial stage of rifting, the lithosphere is still thick and strong and thus high strength let rifting slow (Figure \ref{fig:brune}A). When the lithosphere gets significantly thinned and weakened, low strength enables fast rifting (Figure \ref{fig:brune}B).
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.99\linewidth]{./figs/brune.png}
+	\caption{Strength evolution in numerical models for continental rifting with constant force boundary conditions. \textbf{A.} Distribution of the second invariant of stress at 17Myr when the lithosphere is still thick and strong and thus the extension rate is low, 2mm/yr. Arrows indicate extension velocity. \textbf{B.} After 21Myr when the lithosphere gets significantly thinned and weakened, letting the extension rate increase to 40 mm/yr. From \citet{Brune2016}}
+	\label{fig:brune}
+\end{figure}
 
 Prompted by the non-uniform plate growth at mid-ocean ridges and potential interactions between the far-field forces and mid-ocean ridge processes, I investigate the mechanism of interactions between plate driving forces and internal forces at mid-ocean ridges including diking and faulting using numerical models. Conventional kinematic boundary conditions are replaced with tractions in numerical models for mid-ocean ridges. I also include magmatic intrusion and faulting at a spreading center in models because magmatism and faulting play a vital role in determining characteristics of mid-ocean ridges. 
 
@@ -177,8 +184,12 @@ In the \citet{Buck2005}'s model, dike openings in the lithosphere are taken to b
 	\label{fig:mfactor}
 \end{figure}
 
-\section{Numerical approach}
-\note[EC]{Let's reorganize ``Numerical approach'' as follows: Governing equations, Numerical methods for approximate solution. Then, ``Model Setup'' becomes a new (sub-)section.}
+%\section{Numerical approach}
+%\note[EC]{Let's reorganize ``Numerical approach'' as follows: Governing equations, Numerical methods for approximate solution. Then, ``Model Setup'' becomes a new (sub-)section.}
+
+\section{Governing equation}
+
+\section{Numerical methods for approximate solution}
 The FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of momentum
 \begin{align}
  \frac{D v_i}{D t} & = \frac{\partial \sigma_{ij}}{\partial x_{j}} + \rho g
