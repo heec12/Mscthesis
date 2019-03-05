@@ -208,7 +208,7 @@ The FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Polia
 
 
 \section{Model Setup}
-For visco-elastic deformation, the material behaves as a Maxwell solid. I follow the dry diabase power law rheology \citep{Kirby1987, Chen1990}. Plastic yielding is controlled by Mohr-coulomb theory, in which cohesion is a function of the total accumulated plastic strain \citep{Poliakov1998}. Cohesion decreases linearly from its initial value 44 MPa to the minimum value of 4 MPa.
+The materials in this model reponse as elasto-visco-plastic, where the brittle behavior is modeled by strain-weaking elasto-plasticity and/or damage, while the ductile behavior is modeled by Maxwell visco-elasticity. For visco-elastic deformation, the material behaves as a Maxwell solid. I follow the dry diabase power law rheology \citep{Kirby1987, Chen1990}. Plastic yielding is controlled by Mohr-coulomb theory, in which cohesion is a function of the total accumulated plastic strain \citep{Poliakov1998}. Cohesion decreases linearly from its initial value 44 MPa to the minimum value of 4 MPa.
 
 \begin{figure}[!htb]
 	\centering
@@ -217,14 +217,7 @@ For visco-elastic deformation, the material behaves as a Maxwell solid. I follow
 	\label{fig:modelsetup}
 \end{figure}
 
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.9\linewidth]{./figs/fault_stage.pdf}
-	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages. \textbf{A.} Incipient stage: new fault occurs on left side of the ridge axis.  \textbf{B.} Mature stage: fault heave increases and fault dip decreases as fault grows. \textbf{C.} Terminal stage: fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis.}
-	\label{fig:faultstage}
-\end{figure}
-
-The model domain is rectangular with centered ridge axis. All models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, boundary force for force boundary conditioned model is defined by averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault (Figure \ref{fig:faultstage}A) on the other side of the ridge axis. I use residual force defined as a sum of constant boundary force and internal force (Equation \ref{Fres}).
+The model domain is rectangular with centered ridge axis. All models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. 
 
 \begin{figure}[!htb]
 	\centering
@@ -232,10 +225,20 @@ The model domain is rectangular with centered ridge axis. All models have 60 km 
 	\caption{ Schematic illustration of the internal forces and boundary forces applying to the model.}
 	\label{fig:forcescheme}
 \end{figure}
+
+In velocity-driven models, deformation is driven by imposing horizontal motion on the left and right boundaries at a rate of 2.5cm/yr. In the case of force-driven models, I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, three different forces are considered (Figure \ref{fig:forcescheme}). (1) Boundary force ($F_{bdy}$) is a force only applied at boundary nodes. (2) For brittle layer, elastic force ($F_{elst}$) is exerted as a counter force of boundary force in the opposite direction.Viscous force ($F_{visc}$), resisting to flow, is applied for ductile layer. Additionally, the force from faulting and its evolution is called fault force ($F_{fault}$). Sum of above three forces is defined as an internal force ($F_{int}$). (3) Residual force ($F_{res}$) is sum of boundary force and internal force (Equation \ref{Fres}).
 \begin{align} \label{Fres}
 F_{res} & = F_{int} + F_{bdy} \\
  & = F_{fault} + F_{elst} + F_{visc} + F_{bdy}
 \end{align}
+For the models controlled by force balance, I define $F_{bdy}$ as averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault  (Figure \ref{fig:faultstage}A) on the other side of the ridge axis.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.9\linewidth]{./figs/fault_stage.pdf}
+	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages. \textbf{A.} Incipient stage: new fault occurs on left side of the ridge axis.  \textbf{B.} Mature stage: fault heave increases and fault dip decreases as fault grows. \textbf{C.} Terminal stage: fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis.}
+	\label{fig:faultstage}
+\end{figure}
 
 \chapter{Results}
 
