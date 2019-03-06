@@ -213,7 +213,7 @@ The materials in this model reponse as elasto-visco-plastic, where the brittle b
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figs/modelsetup.pdf}
-	\caption{ .}
+	\caption{Model setup used for numerical simulations of mid-ocean ridge system. For both velocity- and for-driven model, same initial and thermal boundary conditions are applied.}
 	\label{fig:modelsetup}
 \end{figure}
 
@@ -226,28 +226,35 @@ The model domain is rectangular with centered ridge axis. All models have 60 km 
 	\label{fig:forcescheme}
 \end{figure}
 
-In velocity-driven models, deformation is driven by imposing horizontal motion on the left and right boundaries at a rate of 2.5cm/yr. In the case of force-driven models, I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, three different forces are considered (Figure \ref{fig:forcescheme}). (1) Boundary force ($F_{bdy}$) is a force only applied at boundary nodes. (2) For brittle layer, elastic force ($F_{elst}$) is exerted as a counter force of boundary force in the opposite direction.Viscous force ($F_{visc}$), resisting to flow, is applied for ductile layer. Additionally, the force from faulting and its evolution is called fault force ($F_{fault}$). Sum of above three forces is defined as an internal force ($F_{int}$). (3) Residual force ($F_{res}$) is sum of boundary force and internal force (Equation \ref{Fres}).
+In velocity-driven models, deformation is driven by imposing horizontal motion on the left and right boundaries at a rate of 2.5cm/yr. In the case of force-driven models, I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, three different forces are considered (Figure \ref{fig:forcescheme}). (1) Boundary force ($F_{bdy}$) is a force only applied at boundary nodes. (2) For brittle layer, elastic force ($F_{elst}$) is exerted as a counter force of boundary force in the opposite direction.Viscous force ($F_{visc}$), resisting to flow, is applied for ductile layer. Additionally, the force from faulting and its evolution is called fault force ($F_{fault}$). Sum of above three forces is defined as an internal force ($F_{int}$). (3) Residual force ($F_{res}$) is sum of boundary force and internal force
 \begin{align} \label{Fres}
 F_{res} & = F_{int} + F_{bdy} \\
  & = F_{fault} + F_{elst} + F_{visc} + F_{bdy}
 \end{align}
-For the models controlled by force balance, I define $F_{bdy}$ as averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault  (Figure \ref{fig:faultstage}A) on the other side of the ridge axis.
+exerting on models. For the models controlled by force balance, I define $F_{bdy}$ as averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault (Figure \ref{fig:faultstage}A) on the other side of the ridge axis. $F_{bdy}$ is constant while $F_{int}$ is dynamic value and hence $F_{res}$ is changing over time.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/fault_stage.pdf}
-	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages. \textbf{A.} Incipient stage: new fault occurs on left side of the ridge axis.  \textbf{B.} Mature stage: fault heave increases and fault dip decreases as fault grows. \textbf{C.} Terminal stage: fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis.}
+	\caption{ Snapshots of the kinematic model (M = 0.8) representing stages of the fault evolution. The fault evolution can be divided as three stages. \textbf{A.} Incipient stage: new fault occurs on left side of the ridge axis. \textbf{B.} Mature stage: fault heave increases and fault dip decreases as fault grows. \textbf{C.} Terminal stage: fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis.}
 	\label{fig:faultstage}
 \end{figure}
+
+Calculated $F_{res}$ drives only brittle part of model. Brittle to ductile transition occurs in oceanic lithosphere at 600$^\circ$C \citep{Violay2012}. With respect to plate tectonics, the lithospheric plates moves over the asthenosphere. Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on plates.
 
 \chapter{Results}
 
 \section{Kinematic models}
 
+Using velocity-driven mechanism, I reproduce geological features consistent with the previous studies. At M=0.5 a master detachment fault forms on one side. For M=0.8, the model produces a series of small-offset faults on both sides of ridge axis.
+
+However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
 \section{Force boundary models}
 
-\subsection{F=0 models}
+\subsection{$F_{res}=0$ models}
+
+After initial phase, I set $F_{res}$ as a zero. 
 
 \subsection{Plate velocity varies with fault evolution}
 
