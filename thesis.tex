@@ -223,7 +223,7 @@ Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. I
 	\caption{Model setup used for numerical simulations of mid-ocean ridge system. For both velocity- and force-driven model, same initial and thermal boundary conditions are applied.}
 	\label{fig:modelsetup}
 \end{figure}
-
+%
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/modelsetup1.png}
@@ -233,10 +233,17 @@ Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. I
 
 The model domain is rectangular with centered ridge axis. All models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. \note[EC]{Please think about add another panel to fig:modelsetup that shows the mesh.} \note[HC]{Literally mesh only? or do you mean adding some field(like viscosity) with mesh? See fig 2.4}
 
-In velocity-driven models, deformation is driven by imposing horizontal motion on the left and right boundaries at a rate of 2.5cm/yr. In the case of force-driven models, I apply dynamic force boundary conditions at the lateral model sides, such that at the initial stage, the boundary force is linearly increasing, allowing the plate to reach the typical sea-floor spreading rates (2.5 cm/yr). This approach is feasible if the model shows brittle failure with constant boundary forces. Hereafter, three different forces are considered (Figure \ref{fig:forcescheme}). (1) Boundary force ($F_{bdy}$) is a force only applied at boundary nodes. (2) For brittle layer, elastic force ($F_{elst}$) is exerted as a counter force of boundary force in the opposite direction.Viscous force ($F_{visc}$), resisting to flow, is applied for ductile layer. Additionally, the force from faulting and its evolution is called fault force ($F_{fault}$). Sum of above three forces is defined as an internal force ($F_{int}$). (3) Residual force ($F_{res}$) is sum of boundary force and internal force, eq.~\eqref{Fres}.
+\subsection{Kinematic models}
+
+In velocity-driven models, deformation is driven by imposing horizontal motion on the left and right boundaries at a rate of 2.5cm/yr. 
+
+\subsection{$(\boldsymbol{F_{res}})_x \mathbf{=0}$ models}
+
+Three different forces are considered (Figure \ref{fig:forcescheme}) in force-driven models. (1) Boundary force ($F_{bdy}$) is a force only applied at boundary nodes. (2) For brittle layer, elastic force ($\boldsymbol{F_{elst}}$) is exerted as a counter force of boundary force in the opposite direction.Viscous force ($\boldsymbol{F_{visc}}$), resisting to flow, is applied for ductile layer. Additionally, the force from faulting and its evolution is called fault force ($\boldsymbol{F_{fault}}$). Sum of above three forces is defined as an internal force ($\boldsymbol{F_{int}}$). (3) Residual force ($\boldsymbol{F_{res}}$) is sum of boundary force and internal force, eq.~\eqref{Fres}.
+%
 \begin{align} \label{Fres}
-F_{res} & = F_{int} + F_{bdy} \\
- & = F_{fault} + F_{elst} + F_{visc} + F_{bdy}
+\mathbf{F_{res}} & = \mathbf{F_{int}} + \mathbf{F_{bdy}} \\
+ & = \mathbf{F_{fault}} + \mathbf{F_{elst}} + \mathbf{F_{visc}} + \mathbf{F_{bdy}}
 \end{align}
 %
 \begin{figure}[!htb]
@@ -246,7 +253,37 @@ F_{res} & = F_{int} + F_{bdy} \\
 	\label{fig:forcescheme}
 \end{figure}
 
-For the models controlled by force balance, I define $F_{bdy}$ as averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault  (Figure \ref{fig:faultstage}A) on the other side of the ridge axis.
+At the initial stage, The magnitude of $(\boldsymbol{F_{res}})_x$ increases linearly with the time until the mean plate speed quadratically increase to 2.5 cm/yr. This approach is feasible if the model shows brittle failure with constant boundary forces. I use the proper value of slope as 1 Pa/yr which does not occur boundary failure by testing the range from 1 to 1000 Pa/yr (table \ref{tab:slope}). 
+%
+\begin{table}[h!]
+	\centering
+	\caption{Model results of 1Myr of spreading for $(\boldsymbol{F_{res}})_x$ incresing slope ranging from 1 to 1000 Pa/yr with two different M value. Expected model behavior for M=0.5 is a master detachment fault and alternating faulting for M=0.8}
+	\label{tab:slope}
+	\begin{tabular}{ccc}
+		\toprule
+		Slope, Pa/yr & M = 0.5 & M = 0.8\\
+		\midrule
+          	1 & Detachment fault forms 120 Kyr later & Alternating faulting is visible\\
+		10 & Detachment fault forms 100 Kyr later & Faulting repeats only on right side\\
+		100 & Detachment fault forms 81 Kyr later & Alternating faulting mode, \\
+		&&but faulting is dominanted on right side\\
+		1000 & Brittle failure occurs & Brittle failure occurs\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.99\linewidth]{./figs/force0.pdf}
+	\caption{Velocity and boundary force($(\boldsymbol{F_{bdy}})_x$) as a function of time. $(\boldsymbol{F_{bdy}})_x$ increases linearly with time until the plate speed quadratically increase to 2.5 cm /yr. At that moment, $(\boldsymbol{F_{bdy}})_x$ is reduced to zero so that the horizontal plate velocity is maintained at the target value of 2.5 cm/yr.}
+	\label{fig:force0}
+\end{figure}
+
+Setting $(\boldsymbol{F_{res}})_x$ as a zero after initial phase allow me to examine the expected physical behavior in force boundary applied model. When the magnitude of force acting on plate is zero, the velocity of the plate would be constant (Figure \ref{fig:force0}).
+
+\subsection{Constant $(\boldsymbol{F_{bdy}})_x$ models}
+
+For the models controlled by force balance, I define $(\boldsymbol{F_{bdy}})_x$ as averaging internal force of kinematic model from the mature stage of the fault (Figure \ref{fig:faultstage}B) to the moment of incipient stage of the fault  (Figure \ref{fig:faultstage}A) on the other side of the ridge axis.
 %
 \begin{figure}[!htb]
 	\centering
@@ -255,7 +292,7 @@ For the models controlled by force balance, I define $F_{bdy}$ as averaging inte
 	\label{fig:faultstage}
 \end{figure}
 
-Calculated $F_{res}$ drives only brittle part of model. Brittle to ductile transition occurs in oceanic lithosphere at 600$^\circ$C \citep{Violay2012}. With respect to plate tectonics, the lithospheric plates moves over the asthenosphere. Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates.
+Calculated $(\boldsymbol{F_{res}})_x$ drives only brittle part of model. Brittle to ductile transition occurs in oceanic lithosphere at 600$^\circ$C \citep{Violay2012}. With respect to plate tectonics, the lithospheric plates moves over the asthenosphere. Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
 
 \chapter{Results}
 
@@ -269,10 +306,9 @@ However, the velocity-driven models do not show the observed non-uniform plate v
 
 \subsection{$(\boldsymbol{F_{res}})_x=0$ models}
 
-To examine the 
-The force magnitude increases linearly with the time until the mean plate speed quadratically increase to 2.5 cm/yr. After initial phase, I set $(\boldsymbol{F_{res}})_x$ as a zero so that the mean horizontal plate velocity is maintained at the target value of 2.5 cm/yr. 
-
 With this force boundary conditions, models mimic the appearance of the constant velocity boundary condition models.
+
+\subsection{Constant $(\boldsymbol{F_{bdy}})_x$ models}
 
 \subsection{Plate velocity varies with fault evolution in force balance models}
 
@@ -311,26 +347,6 @@ When $M=0.8$, fault migrates toward off-axis. The fault eventually becomes inact
 	\caption{Plate velocity obtained from M = 0.8 model results. Abnormal peaks from remeshing effects are filtered out.}
 	\label{fig:m08vel}
 \end{figure}
-
-%\begin{table}[h!]
-%	\centering
-%	\caption{1-D model used for routine earthquake locations and as the initial model for traditional 3-D tomographic images \citep{nakajima2001three}.}
-%	\label{tab:vmodel}
-%	\begin{tabular}{ccc}
-%		\toprule
-%		Depth, km & P Wave Velocity, km/s & S Wave Velocity, km/s\\
-%		\midrule
-%		0 & 5.60 & 3.24\\
-%		10 & 6.00 & 3.46\\
-%		25 & 6.79 & 3.92\\
-%		40 & 7.72 & 4.34\\
-%		65 & 7.79 & 4.38\\
-%		90 & 7.92 & 4.45\\
-%		120 & 8.01 & 4.50\\
-%		150 & 8.09 & 4.55\\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
 
 \section{Thermal state}
 
