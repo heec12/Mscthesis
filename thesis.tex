@@ -180,12 +180,19 @@ Magmatism at the spreading center of mid-ocean ridges plays an essential role in
 Assuming a constant magma injection rate at dike zone, \citet{Buck1998} simplified the complex diking process. They treated intrusion of a dike of low viscosity magma by specifying the stress on a vertical interface placed at the center of crust layer. Normal stress is set equal to the lithostatic pressure in crust layer and shear stress is set to zero on the interface.
 This approach allowed the lateral position of a modeled dike to explain the contrasting faulting styles at slow- and fast-spreading ridges.
 
-In the \citet{Buck2005}'s model, dike openings in the lithosphere are taken to be uniform with depth and quantified by the ratio of dike opening rate to total plate spreading rate. This ratio is denoted as M and typically given as a parameter for a model so that \annote[EC]{the rate of diking-accommodated plate separation is determined as M times total spreading rate.}{Please try to provide an equation corresponding to this statement.} When M = 0, dikes account for none of the plate spreading; and dikes accommodate all the plate separations when M = 1. M less than one corresponds to the case where magma supply is insufficient for filling the entire opening created by plate separation and tectonic stretching of the lithosphere should occurs. For M = 1, axial lithospheric separation is all taken up by dike widening and no faults and no axial valley develop.  For 0.5 $<$ M $<$ 1, faults develop and slip at a horizontal rate of (1$-$M) Vp (Figure \ref{fig:mfactor}A). Since the opening by diking is faster than the rate that the fault offset increases, the fault itself is pushed off axis with time. When pushed far away from the axis, the fault locks because the lithosphere around the fault becomes thicker and stronger. As a result, a new fault forms at the spreading center, continuing to accommodate a part of plate separation. For M = 0, dikes account for none of the plate spreading. Results for stretching-dominated ridge models are illustrated in Figure \ref{fig:mfactor}B and C. In the case of M = $\sim$1, the model produces a symmetric pattern of small-offset faults, producing a bathymetric profile similar to that of the Southeast Indian Ridge (Figure \ref{fig:mfactor}B). For M = 0.5, the model generates two large offset faults on one side, and a series of small faults on the other side. Lithospheric stretching creates conjugate normal faults at the spreading center initially. Only one branch survives on one side of the ridge, eventually evolving into a detachment fault, while short-lived new faults semi-regularly form on the opposite side. The resultant bathymetric profile resembles that of the slow-spreading Mid-Atlantic Ridge (Figure \ref{fig:mfactor}C).
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.99\linewidth]{./figs/mfactor.pdf}
+    \caption{Cartoon showing how M factor determine plate separation mechanism. \textbf{A.} M = 1, dike accommodates all extensions. Dike opening rate and plate separation rate are same. \textbf{B.} M = 0, all extension is taken up by fault. No diking occurs. \textbf{C.} 0.5 $<$ M $<$ 1, more than half of plate separation is accommodated by dike and hence faults migrate off axis. It shows how the hanging-wall block of a fault may migrate during ridge stretching.}
+    \label{fig:mcartoon}
+\end{figure}
+
+In the \citet{Buck2005}'s model, dike openings in the lithosphere are taken to be uniform with depth and quantified by the ratio of dike opening rate to total plate spreading rate. This ratio is denoted as M and typically given as a parameter for a model so that the rate of diking-accommodated plate separation is determined as M times total spreading rate. When M = 0, dikes account for none of the plate spreading (Figure \ref{fig:mcartoon}A); and dikes accommodate all the plate separations when M = 1 (Figure \ref{fig:mcartoon}B). M less than one corresponds to the case where magma supply is insufficient for filling the entire opening created by plate separation and tectonic stretching of the lithosphere should occurs. For M = 1, axial lithospheric separation is all taken up by dike widening and no faults and no axial valley develop.  For 0.5 $<$ M $<$ 1, faults develop and slip at a horizontal rate of 2$v_p$ (M $-$ 0.5) (Figure \ref{fig:mcartoon}C). Since the opening by diking is faster than the rate that the fault offset increases, the fault itself is pushed off axis with time. When pushed far away from the axis, the fault locks because the lithosphere around the fault becomes thicker and stronger. As a result, a new fault forms at the spreading center, continuing to accommodate a part of plate separation. For M = 0, dikes account for none of the plate spreading. Results for stretching-dominated ridge models are illustrated in Figure \ref{fig:mfactor}A and B. In the case of M = $\sim$1, the model produces a symmetric pattern of small-offset faults, producing a bathymetric profile similar to that of the Southeast Indian Ridge (Figure \ref{fig:mfactor}A). For M = 0.5, the model generates two large offset faults on one side, and a series of small faults on the other side. Lithospheric stretching creates conjugate normal faults at the spreading center initially. Only one branch survives on one side of the ridge, eventually evolving into a detachment fault, while short-lived new faults semi-regularly form on the opposite side. The resultant bathymetric profile resembles that of the slow-spreading Mid-Atlantic Ridge (Figure \ref{fig:mfactor}B).
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.99\linewidth]{./figs/fig1.pdf}
-	\caption{\textbf{A.} Cartoon showing how the hanging-wall block of a fault may migrate during ridge stretching as a function of time for 0.5 $<$ M $<$ 1.0. \textbf{B.} Plastic strain distribution and surface relief from the numerical model with M = 0.95. High plastic strain represents shearing on faults and the bathymetric profile across the Southeast Indian Ridge (SEIR) is shown for comparison. \textbf{C.} Same as \textbf{B} but for M = 0.5. A bathymetric profile from the Mid-Atlantic Ridge (MAR) is shown for comparison. From \citet{Buck2005}}
+	\caption{\textbf{A.} Plastic strain distribution and surface relief from the numerical model with M = 0.95. High plastic strain represents shearing on faults and the bathymetric profile across the Southeast Indian Ridge (SEIR) is shown for comparison. \textbf{B.} Same as \textbf{A} but for M = 0.5. A bathymetric profile from the Mid-Atlantic Ridge (MAR) is shown for comparison. From \citet{Buck2005}}
 	\label{fig:mfactor}
 \end{figure}
 
@@ -302,17 +309,17 @@ Using velocity-driven mechanism, I reproduce geological features consistent with
 
 However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
-\section{Force boundary models}
-
-\subsection{$(\boldsymbol{F_{res}})_x=0$ models}
+\section{$(\boldsymbol{F_{res}})_x=0$ models}
 
 With this force boundary conditions, models mimic the appearance of the constant velocity boundary condition models.
 
-\subsection{Constant $(\boldsymbol{F_{bdy}})_x$ models}
+In addition, 
 
-\subsection{Plate velocity varies with fault evolution in force balance models}
+\section{Constant $(\boldsymbol{F_{bdy}})_x$ models}
 
-Fault development at a ridge affects plate velocity. In kinematic models, normal fault migrates away from the axis at a rate $U = 2v(M-0.5)$, where $v$ is a constant plate driving velocity (Figure \ref{fig:hangingwall}) \citep{Buck2005}. Similarly, in the cases of force driven model, interaction between dynamic driving velocity from boundary force and opposite direction velocity from normal fault controls the plate speed in force. The plate containing active fault is slower than another plate.
+\subsection{Plate velocity varies with fault evolution}
+
+Fault development at a ridge affects plate velocity. In kinematic models, normal fault migrates away from the axis at a rate $2v_p(M-0.5)$, where $v_p$ is a constant plate driving velocity (Figure \ref{fig:hangingwall}) \citep{Buck2005}. Similarly, in the cases of force driven model, interaction between dynamic driving velocity from boundary force and opposite direction velocity from normal fault controls the plate speed in force. The plate containing active fault is slower than another plate.
 
 %The plate velocity variation by fault evolution takes part in short term and small magnitude.
 
@@ -348,7 +355,9 @@ When $M=0.8$, fault migrates toward off-axis. The fault eventually becomes inact
 	\label{fig:m08vel}
 \end{figure}
 
-\section{Thermal state}
+\subsection{Time }
+
+\subsection{Mantle thermal fluctuation}
 
 Long term and large magnitude variation which cannot be explained by fault evolution may be caused by changes of the plate thermal state. By varying heat injection rate of the model, different behaviors of long term and large magnitude plate speed variation are observed. 
 
