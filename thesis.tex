@@ -238,7 +238,7 @@ Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. I
 	\label{fig:mesh}
 \end{figure}
 
-The model domain is rectangular with centered ridge axis. All models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. \note[EC]{Please think about add another panel to fig:modelsetup that shows the mesh.} \note[HC]{Literally mesh only? or do you mean adding some field(like viscosity) with mesh? See fig 2.4}
+The model domain is rectangular with centered ridge axis. All models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while at the bottom side isostatic equilibrium is realized by means of the Winkler foundation. \note[EC]{Please think about add another panel to fig:modelsetup that shows the mesh.} \note[HC]{Literally mesh only? or do you mean adding some field(like viscosity) with mesh? See fig 2.5}
 
 \subsection{Kinematic models}
 
@@ -305,15 +305,21 @@ Calculated $(\boldsymbol{F_{res}})_x$ drives only brittle part of model. Brittle
 
 \section{Kinematic models}
 
-Using velocity-driven mechanism, I reproduce geological features consistent with the previous studies. At M=0.5 a master detachment fault forms on one side. For M=0.8, the model produces a series of small-offset faults on both sides of ridge axis.
+Using velocity-driven mechanism, I reproduce geological features consistent with the previous studies. At M=0.5 a master detachment fault forms on one side. For M=0.8, the model produces a series of small-offset faults on both sides from ridge axis.
 
 However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
 \section{$(\boldsymbol{F_{res}})_x=0$ models}
 
+\subsection{Constant M models}
+
 With this force boundary conditions, models mimic the appearance of the constant velocity boundary condition models.
 
-In addition, 
+The models with $(\boldsymbol{F_{res}})_x=0$ condition show uniform plate velocity regardless of M value.
+
+\subsection{Time variable M models}
+
+Two-phase M history models show expected faulting modes. 
 
 \section{Constant $(\boldsymbol{F_{bdy}})_x$ models}
 
@@ -330,7 +336,7 @@ Fault development at a ridge affects plate velocity. In kinematic models, normal
 	\label{fig:hangingwall}
 \end{figure}
 
-\subsubsection{M = 0.5}
+%\subsubsection{M = 0.5}
 
 When $M=0.5$, half portion of plate spreading is accommodated by faulting and the master detachment fault forms because the fault ceases to migrate.
 In my model, the expected faulting mode lasts until 650 Kyrs.
@@ -339,23 +345,21 @@ In my model, the expected faulting mode lasts until 650 Kyrs.
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.99\linewidth]{./figs/m05vel.png}
+	\includegraphics[width=0.9\linewidth]{./figs/m05vel.png}
 	\caption{Plate velocity obtained from M = 0.5 model results. Abnormal peaks from remeshing effects are filtered out.}
 	\label{fig:m05vel}
 \end{figure}
 
-\subsubsection{M = 0.8}
+%\subsubsection{M = 0.8}
 
-When $M=0.8$, fault migrates toward off-axis. The fault eventually becomes inactive and is replaced by new and near-axis fault.
+%When $M=0.8$, fault migrates toward off-axis. The fault eventually becomes inactive and is replaced by new and near-axis fault.
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.99\linewidth]{./figs/m08vel.png}
+	\includegraphics[width=0.9\linewidth]{./figs/m08vel.png}
 	\caption{Plate velocity obtained from M = 0.8 model results. Abnormal peaks from remeshing effects are filtered out.}
 	\label{fig:m08vel}
 \end{figure}
-
-\subsection{Time }
 
 \subsection{Mantle thermal fluctuation}
 
