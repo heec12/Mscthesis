@@ -217,14 +217,48 @@ This approach allowed the lateral position of a modeled dike to explain the cont
 %
 %and constitutive equation for a non-Newtonian fluid
 
+\section{Observed bathymetry and faulting modes}
+Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spreading ridges \citep{Tucholke1998}, and are characterized by dome-shaped bathymetric highs interpreted as portions of the lower crust and/or upper mantle exposed by detachment faulting \citep{Tucholke1994}. OCCs form at or near the axis, beneath long-lived ($\sim$1-2 Myr) normal faults which are commonly observed on mid-ocean ridges. Figure \ref{fig:occ} shows an observed detachment fault in multibeam bathymetry data. Detachment locates at near 37 km distance with $\sim$3000 m offset.
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.6\linewidth]{./figs/occ.png}
+	\caption{Multibeam bathymetry data of Mid-Atlantic Ridge (MAR) gridded at 200m spacing (RIDGE Multibeam Synthesis). Topographic profile along estimated direction of spreading shows detachment fault. From \citet{Lavier2000}}
+	\label{fig:occ}
+\end{figure}
+%
+
+Abyssal hills are formed at mid-ocean ridge spreading centers by magmatism and normal faulting, through alternating faulting process, that faults occur alternately on opposite sides of the ridge axis. Figure \ref{fig:abyssalhill} shows alternating faulting in multibean bathymetry data. Figure \ref{fig:abyssalhill}C and D point out the feature of abyssal hills, the offsets of the faults are much smaller than that of detachment fault.
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.98\linewidth]{./figs/abyssalhill.pdf}
+	\caption{\textbf{A.} Multibeam bathymetric data of the Southwest Indian Ridge (SWIR). White line is the ridge axis. \textbf{B.} Bathymetric cross sections along the spreading direction of abyssal hills of \textbf{A}. \textbf{C.} Enlargement on 'zoom a'. Dashed line is fault surface. \textbf{D.} Same with \textbf{C}, but on 'zoom b'. Modified from \citet{Mendel2003}}
+	\label{fig:abyssalhill}
+\end{figure}
+%
 
 \section{Numerical methods for approximate solution}
 FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of momentum and energy for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Lavier2002}. By solving the conservation of momentum, the accelerations are integrated in time to give updated velocities, strains and strain rates. In addition, using the constitutive laws the strains and strain rates are used to calculate new elastic and viscous stresses. These stresses are used to determine the accelerations for the next step of calculation. The FLAC code that I used for this study is available at \url{https://github.com/heec12/non-uniform_plate_growth}. Also, the input parameter files necessary for reproducing the results presented here are available.
 
 \section{Model Setup}
-Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. For visco-elastic deformation,  \add[EC]{the linear Maxwell viscoelastic model is agopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates: [Fill out the details.]}. Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}. %\note[EC]{Show the viscosity equation here and explain all the involved parameters. Also, list all of them in a table. Do the same for the plastic rheology. The goal should be to let anyone be able to reproduce your results by just reading your thesis.}
+Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. 
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.6\linewidth]{./figs/maxwell.png}
+%	\caption{}
+	\label{fig:maxwell}
+\end{figure}
+%
+For visco-elastic deformation, \add[EC]{the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates}.
+\begin{align} \label{srate}
+  \dot{\epsilon} &=  \dot{\epsilon_s} +  \dot{\epsilon_d} \\
+                        &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
+\end{align}
+Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}.
 \begin{align} \label{Visc}
- \eta = \frac{1}{4} \bigg( \frac{4}{3A} \bigg)^{1/n} \dot{\epsilon_{II}}^{(1/n)-1} \exp\bigg(\frac{Q}{nRT}\bigg)
+ \eta = \frac{1}{4} \bigg( \frac{4}{3A} \bigg)^{1/n} \dot{\epsilon}^{(1/n)-1} \exp\bigg(\frac{Q}{nRT}\bigg)
 \end{align}
 
 Plastic yielding is controlled by the strain-weakening Mohr-coulomb plasticity model. In this model, the yield stress is determined as
@@ -286,7 +320,7 @@ For later purposes, the sum of the latter two is termed as an internal force ($\
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/force.pdf}
-	\caption{\note[EC]{Fix the force labels.} Schematic illustration of the internal forces and boundary forces applying to the model.}
+	\caption{Schematic illustration of the internal forces and boundary forces applying to the model.}
 	\label{fig:forcescheme}
 \end{figure}
 
@@ -294,7 +328,7 @@ Since $F_{int}$ is only a response to the boundary force and it is $F_{res}$ tha
 
 The magnitude of the horizontal component of the residual force, $(\boldsymbol{F}_{res})_{x}$ is initially zero but linearly increases with time. Abrupt application of the residual force often causes the faults to form near the side walls rather than at the spreading center.
 % the mean plate speed quadratically
-To avoid undesirable boundary failure, I search for an appropriate rate of increasing $F_{bdy}$ \note[EC]{Fres? Also, keep the notations consistent.} with time by observing faulting behaviors for the values from 1 to 1000 Pa/yr (Table \ref{tab:slope}). When the plate speed reaches 2.5 cm/yr, I set the magnitude of $(F_{bdy})_{x}$ \note[EC]{Fres?} to be zero in order to maintatin the velocity of the plate.
+To avoid undesirable boundary failure, I search for an appropriate rate of increasing $(\boldsymbol{F}_{res})_{x}$ with time by observing faulting behaviors for the values from 1 to 1000 Pa/yr (Table \ref{tab:slope}). When the plate speed reaches 2.5 cm/yr, I set the magnitude of $(\boldsymbol{F}_{res})_{x}$ to be zero in order to maintatin the velocity of the plate.
 %
 \begin{table}[h!]
 	\centering
@@ -308,7 +342,7 @@ To avoid undesirable boundary failure, I search for an appropriate rate of incre
 		10 & Detachment fault forms 100 Kyrs later & Faulting repeats only on right side\\
 		100 & Detachment fault forms 81 Kyrs later & Alternating faulting mode, \\
 		&&but faulting is dominanted on right side\\
-		1000 & Brittle failure occurs \note[EC]{Explain better. Brittle failure occurs whenever a fault forms.} & Brittle failure occurs\\
+		1000 & Boundary failure occurs & Boundary failure occurs\\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -319,7 +353,7 @@ To avoid undesirable boundary failure, I search for an appropriate rate of incre
 
 Unlike the models in Case II, this group of models have prescribed $x$ component boundary force, ($\boldsymbol{F}_{bdy}$)$_x$, rather than $(\boldsymbol{F}_{res})_{x}$, on the boundareis of lithosphere. 
 
-When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earlier? If not, you will have to introduce this and the detachment faulting beforehand. You can refer to one of the earlier figures for the alternating faulting but none seems to show the detachment fautling. This explanation deserves a separate paragraph or a section because you can also clarify that faulting modes are the only characteristic you care about in this study. For instance, you are not going to compare the surface topography from a model with actualy bathymetry, right?} is expected~\citep{Tucholke2008}. The evolution of alternating faulting can be divided as three stages: (1) At incipient stage (Figure \ref{fig:faultstage}A), new fault occurs on one side of the ridge axis; (2) At mature stage (Figure \ref{fig:faultstage}B), the fault heave increases and fault dip decreases as fault grows; (3) At terminal stage (Figure \ref{fig:faultstage}C), the fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis. In \annote[EC]{this}{What are you referring to? Elucidate.} case, I retrieve $(\boldsymbol{F}_{bdy})_x$ \note[EC]{Since now this quantity is a time average, you would want to use a notation that reveals that meaning.} by time-averaging internal forces on the lithosphere's side boundaries in a kinematic model over a time period from the first mature stage of a fault to the incipient stage of another fault that forms on the other side of the ridge axis.
+When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earlier? If not, you will have to introduce this and the detachment faulting beforehand. You can refer to one of the earlier figures for the alternating faulting but none seems to show the detachment fautling. This explanation deserves a separate paragraph or a section because you can also clarify that faulting modes are the only characteristic you care about in this study. For instance, you are not going to compare the surface topography from a model with actualy bathymetry, right?} is expected~\citep{Tucholke2008}. The evolution of alternating faulting can be divided as three stages: (1) At incipient stage (Figure \ref{fig:faultstage}A), new fault occurs on one side of the ridge axis; (2) At mature stage (Figure \ref{fig:faultstage}B), the fault heave increases and fault dip decreases as fault grows; (3) At terminal stage (Figure \ref{fig:faultstage}C), the fault becomes inactive and is replaced by a new-near axis fault on the other side of ridge axis. In constant ($\boldsymbol{F}_{bdy}$)$_x$ models case, I retrieve $(\boldsymbol{F}_{bdy})_x$ \note[EC]{Since now this quantity is a time average, you would want to use a notation that reveals that meaning.} by time-averaging internal forces on the lithosphere's side boundaries in a kinematic model over a time period from the first mature stage of a fault to the incipient stage of another fault that forms on the other side of the ridge axis.
 %
 \begin{figure}[!htb]
 	\centering
@@ -328,24 +362,24 @@ When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earl
 	\label{fig:faultstage}
 \end{figure}
 
-Calculated $(\boldsymbol{F_{res}})_x$ drives only brittle part of model, which I assume corresponds to the part of lithosphere with temperature lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming the asthenosphere is only passively pulled up beneath the spreading center and dragged along with lithosphere, ($\boldsymbol{F}_{bdy}$)$_x$ \note[EC]{Fres?} is set to be zero on the ductile parts of the side boundaries of the domain. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
+Calculated $(\boldsymbol{F_{res}})_x$ drives only brittle part of model, which I assume corresponds to the part of lithosphere with temperature lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming the asthenosphere is only passively pulled up beneath the spreading center and dragged along with lithosphere, ($\boldsymbol{F}_{res}$)$_x$ is set to be zero on the ductile parts of the side boundaries of the domain. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
 
 \chapter{Results}
 
 \section{Kinematic models}
 
-In the \annote[EC]{velocity-driven}{Use consistent terminology. ``Kinematic'' means ``prescribed-motion''.} case, I could reproduce expected faulting modes for each M value consistent with the previous studies. For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:kfault_m05}). For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:kfault_m08}).
+In the kinematic models case, I could reproduce expected faulting modes for each M value consistent with the previous studies. For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:kfault_m05}). For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:kfault_m08}).
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/kfault_m05.png}
-	\caption{Snapshots of fault behavior of kinematic model for M = 0.5 after 1Myr. Model shows detachment faulting. \note[EC]{You gotta show the time evolution of the model at least in this case. Then, you will be excused from doing the same for the other cases. The same for the M=0.8 model.}}
+	\caption{Snapshots of fault behavior of kinematic model for M = 0.5 over 1Myr. Model shows detachment faulting. \note[EC]{You gotta show the time evolution of the model at least in this case. Then, you will be excused from doing the same for the other cases. The same for the M=0.8 model.} \note[HC]{Like this?}}
 	\label{fig:kfault_m05}
 \end{figure}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/kfault_m08.png}
-	\caption{Snapshots of fault behavior of kinematic model for M = 0.8 after 1Myr. Model shows alternating faulting.}
+	\caption{Snapshots of fault behavior of kinematic model for M = 0.8 over 1Myr. Model shows alternating faulting.}
 	\label{fig:kfault_m08}
 \end{figure}
 
@@ -354,13 +388,13 @@ In the \annote[EC]{velocity-driven}{Use consistent terminology. ``Kinematic'' me
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/km05.png}
-	\caption{Horizontal plate velocity obtained from M=0.5 kinematic model. As a reference, 2.5 cm/yr and -2.2 cm/yr are plotted as blue and red lines.}
+	\caption{Horizontal plate velocity obtained from M=0.5 kinematic model. As a reference, 2.5 cm/yr and $-$2.2 cm/yr are plotted as blue and red lines.}
 	\label{fig:km05}
 \end{figure}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/km08.png}
-	\caption{Horizontal plate velocity obtained from M=0.8 kinematic model. As a reference, 2.5 cm/yr and -2.5 cm/yr are plotted as blue and red lines.}
+	\caption{Horizontal plate velocity obtained from M=0.8 kinematic model. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
 	\label{fig:km08}
 \end{figure}
 
@@ -393,7 +427,7 @@ The models with $(\boldsymbol{F_{res}})_x=0$ condition show uniform horizontal p
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.99\linewidth]{./figs/f0vel.png}
-	\caption{\textbf{A.} Horizontal plate velocity obtained from M=0.5 $(\boldsymbol{F_{res}})_x=0$ model results. As a reference, 2.5 cm/yr and \annote[EC]{$-$}{The hyphen and minus symbols are different. Always choose an appropriate one for the context.} 2.7 cm/yr are plotted as blue and red lines. \textbf{B.} Same as \textbf{A} but for M = 0.8. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
+	\caption{\textbf{A.} Horizontal plate velocity obtained from M=0.5 $(\boldsymbol{F_{res}})_x=0$ model results. As a reference, 2.5 cm/yr and $-$2.7 cm/yr are plotted as blue and red lines. \textbf{B.} Same as \textbf{A} but for M = 0.8. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
 	\label{fig:f0vel}
 \end{figure}
 
@@ -427,7 +461,7 @@ The horizontal plate velocity changes when M value changes (400 Kyrs later). In 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/f0m08to05.png}
-	\caption{Horizontal plate velocity obtained from M=0.8 to 0.5 $(\boldsymbol{F_{res}})_x=0$ model. As a reference, 2.5 cm/yr and -2.5 cm/yr are plotted as blue and red lines.}
+	\caption{Horizontal plate velocity obtained from M=0.8 to 0.5 $(\boldsymbol{F_{res}})_x=0$ model. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
 	\label{fig:f008to05}
 \end{figure}
 
