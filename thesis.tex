@@ -385,7 +385,7 @@ The kinematic models reproduce the faulting modes for each M value reported in t
 	\label{fig:kfault_m08}
 \end{figure}
 
-Mean horizontal velocity of each plate ( $\overline{\boldsymbol{v}_x}$ ), x component of the nodal velocities averaged over the nodes on each side of the ridge axis, show different pattern depending on M values. in the kinematic models. When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.5 cm/yr on right-side plate and 2.2 cm/yr on left-side plate (Figure \ref{fig:km05}). At M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:km08}). For the first 190 Kyrs, the right-side plate is in a low-velocity phase while the left-side plate is in a high-velocity phase. From 190 to 330 Kyrs, now the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. \note[EC]{I thought you would show the mean horizontal plate velocity plot after removng the remeshing signals. They are included in the current plots, right?} \note[HC]{The problem is that the filtered signal cannot represent the sharp edges. For example, it looks like a sinusodial function rather than a boxcar function. So I think not showing is better especially in kinematic and Fres=0 cases. I'll explain more of this in our meeting.} This pattern repeats until the model ends.
+Mean horizontal velocity of each plate ( $\overline{\boldsymbol{v}_x}$ ), x component of the nodal velocities averaged over the nodes on each side of the ridge axis, show different pattern depending on M values. in the kinematic models. When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.5 cm/yr on right-side plate and 2.2 cm/yr on left-side plate (Figure \ref{fig:km05}). At M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:km08}). For the first 190 Kyrs, the right-side plate is in a low-velocity phase while the left-side plate is in a high-velocity phase. From 190 to 330 Kyrs, now the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. \note[EC]{I thought you would show the mean horizontal plate velocity plot after removng the remeshing signals. They are included in the current plots, right?} \note[HC]{The problem is that the filtered signal cannot represent the sharp edges. So I think not showing is better especially in kinematic and Fres=0 cases. I'll explain more of this in our meeting.} This pattern repeats until the model ends.
 
 \begin{figure}[!htb]
 	\centering
@@ -396,10 +396,15 @@ Mean horizontal velocity of each plate ( $\overline{\boldsymbol{v}_x}$ ), x comp
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/km08.png}
-	\caption{Horizontal plate velocity obtained from M=0.8 kinematic model. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
+	\caption{Mean horizontal plate velocity obtained from M=0.8 kinematic model. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
 	\label{fig:km08}
 \end{figure}
-
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.95\linewidth]{./figs/kinm08.png}
+	\caption{\textbf{A.} Raw mean horizontal plate velocity from M=0.8 kinematic model. \textbf{B.} Mean horizontal plate velocity after removing the remeshing effects. The red and blue lines are the picked mean horizontal plate velocity. \note[HC]{How about this way?}}
+	\label{fig:kinm08}
+\end{figure}
 %However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
 
