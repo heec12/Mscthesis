@@ -217,7 +217,7 @@ This approach allowed the lateral position of a modeled dike to explain the cont
 %
 %and constitutive equation for a non-Newtonian fluid
 
-\section{Observed bathymetry and faulting modes}
+\section{Observed bathymetry and faulting modes \note[EC]{Does this topic deserve a separate section? Also, relate these back to the M factor models.}}
 Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spreading ridges \citep{Tucholke1998}, and are characterized by dome-shaped bathymetric highs interpreted as portions of the lower crust and/or upper mantle exposed by detachment faulting \citep{Tucholke1994}. OCCs form at or near the axis, beneath long-lived ($\sim$1-2 Myr) normal faults which are commonly observed on mid-ocean ridges. Figure \ref{fig:occ} shows an observed detachment fault in multibeam bathymetry data. Detachment locates at near 37 km distance with $\sim$3000 m offset.
 %
 \begin{figure}[!htb]
@@ -228,7 +228,7 @@ Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spr
 \end{figure}
 %
 
-Abyssal hills are formed at mid-ocean ridge spreading centers by magmatism and normal faulting, through alternating faulting process, that faults occur alternately on opposite sides of the ridge axis. Figure \ref{fig:abyssalhill} shows alternating faulting in multibean bathymetry data. Figure \ref{fig:abyssalhill}C and D point out the feature of abyssal hills, the offsets of the faults are much smaller than that of detachment fault.
+Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal faulting that occurs alternatingly on both sides of the ridge axis. Figure \ref{fig:abyssalhill}A shows multibeam bathymetry data \add[EC]{for XXX ridge, where abyssal hills are observed and explained as a product of alternating small-offset normal faults}. Figure \ref{fig:abyssalhill}\annote[EC]{C and D}{What about B? You should show more care with explaining figures. I\rq{}ve said this many times but you shouldn\rq{}t just throw a figure at readers: You have to engage in explaining what is being shown and why you are showing it}. point out the feature of abyssal hills, the offsets of the faults are much smaller than that of detachment fault.
 %
 \begin{figure}[!htb]
 	\centering
@@ -242,7 +242,7 @@ Abyssal hills are formed at mid-ocean ridge spreading centers by magmatism and n
 FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of momentum and energy for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Lavier2002}. By solving the conservation of momentum, the accelerations are integrated in time to give updated velocities, strains and strain rates. In addition, using the constitutive laws the strains and strain rates are used to calculate new elastic and viscous stresses. These stresses are used to determine the accelerations for the next step of calculation. The FLAC code that I used for this study is available at \url{https://github.com/heec12/non-uniform_plate_growth}. Also, the input parameter files necessary for reproducing the results presented here are available.
 
 \section{Model Setup}
-Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. 
+Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. \note[EC]{If the Maxwell viscoelastic unit diagram is so important as for you to show it here, add a proper caption and spend more efforts to described it. Otherwise, don\rq{}t show the figure.}
 %
 \begin{figure}[!htb]
 	\centering
@@ -251,7 +251,7 @@ Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. I
 	\label{fig:maxwell}
 \end{figure}
 %
-For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates.
+For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates \note[EC]{Why the subscript `s\rq{} and `d\rq{}? Also, make sure to explain all the symbols introduced as you did for the equation for the yield stress. The same goes with the viscosity formula.}.
 \begin{align} \label{srate}
   \dot{\epsilon} &=  \dot{\epsilon_s} +  \dot{\epsilon_d} \\
                         &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
@@ -282,7 +282,7 @@ Strain weaekning is realized by decreasing cohesion with the total accumulated p
 	        A & From Eq \ref{Visc} & 190 & \\
 	        E & Activation energy & 4.85e+5 & $kJ/mol$ \\
 	        $\lambda$ & 1st Lam\'e parameter & 12 & GPa\\
-	        $\mu$ & Shear modulus & 12 & GPa\\
+	        $\mu$ & \annote[EC]{Shear modulus}{But the symbol is also used for friction coefficient. Straighten this out.} & 12 & GPa\\
 	        $C_{max}$ & Maximum cohesion & 44 & MPa\\
 	        $C_{min}$ & Minimum cohesion & 4 & MPa\\
 		\bottomrule
@@ -362,7 +362,7 @@ When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earl
 	\label{fig:faultstage}
 \end{figure}
 
-I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ ($\overline{(\boldsymbol{F}_{res})_x}$) from a kinematic model with the same value of M. While a kinematic model with a desired value of M is run, $(\boldsymbol{F}_{int})_x$ values on all the nodes on the side boundaries are recorded. Those values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over the period from the mature stage of the first fault to the incipient stage of the new fault on the opposite side.
+I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ ($\overline{(\boldsymbol{F}_{res})_x}$) from \annote[EC]{a kinematic model}{Correct this.} with the same value of M. While a kinematic model with a desired value of M is run, $(\boldsymbol{F}_{int})_x$ values on all the nodes on the side boundaries are recorded. Those values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over the period from the mature stage of the first fault to the incipient stage of the new fault on the opposite side.
 
 I let $(\boldsymbol{F_{res}})_x$ be computed only on the nodes in the brittle state, in which I assume temperature is lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming that the ductile mantle is only passively pulled up beneath the spreading center and dragged along by the brittle lithosphere, I set ($\boldsymbol{F}_{res}$)$_x$ of the ductile parts of the side boundaries to be zero. This treatment is equivalent to assumging that the boundary force is perfectly balanced with the viscous resistance on the ductile portions of the boundaries. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
 
@@ -385,7 +385,7 @@ The kinematic models reproduce the faulting modes for each M value reported in t
 	\label{fig:kfault_m08}
 \end{figure}
 
-Mean horizontal velocity of each plate ( $\overline{\boldsymbol{v}_x}$ ), x component of the nodal velocities averaged over the nodes on each side of the ridge axis, show different pattern depending on M values. in the kinematic models. When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.5 cm/yr on right-side plate and 2.2 cm/yr on left-side plate (Figure \ref{fig:km05}). At M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:km08}). For the first 190 Kyrs, the right-side plate is in a low-velocity phase while the left-side plate is in a high-velocity phase. From 190 to 330 Kyrs, now the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. \note[EC]{I thought you would show the mean horizontal plate velocity plot after removng the remeshing signals. They are included in the current plots, right?} \note[HC]{The problem is that the filtered signal cannot represent the sharp edges. So I think not showing is better especially in kinematic and Fres=0 cases. I'll explain more of this in our meeting.} This pattern repeats until the model ends.
+Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$), x component of the nodal velocities averaged over the nodes on each side of the ridge axis, show different pattern depending on M values. in the kinematic models. When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.5 cm/yr on right-side plate and 2.2 cm/yr on left-side plate (Figure \ref{fig:km05}). At M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:km08}). For the first 190 Kyrs, the right-side plate is in a low-velocity phase while the left-side plate is in a high-velocity phase. From 190 to 330 Kyrs, now the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. \note[EC]{I thought you would show the mean horizontal plate velocity plot after removng the remeshing signals. They are included in the current plots, right?} \note[HC]{The problem is that the filtered signal cannot represent the sharp edges. So I think not showing is better especially in kinematic and Fres=0 cases. I'll explain more of this in our meeting.} This pattern repeats until the model ends.
 
 \begin{figure}[!htb]
 	\centering
