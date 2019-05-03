@@ -217,7 +217,6 @@ This approach allowed the lateral position of a modeled dike to explain the cont
 %
 %and constitutive equation for a non-Newtonian fluid
 
-\section{Observed bathymetry and faulting modes \note[EC]{Does this topic deserve a separate section? Also, relate these back to the M factor models.}}
 Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spreading ridges \citep{Tucholke1998}, and are characterized by dome-shaped bathymetric highs interpreted as portions of the lower crust and/or upper mantle exposed by detachment faulting \citep{Tucholke1994}. OCCs form at or near the axis, beneath long-lived ($\sim$1-2 Myr) normal faults which are commonly observed on mid-ocean ridges. Figure \ref{fig:occ} shows an observed detachment fault in multibeam bathymetry data. Detachment locates at near 37 km distance with $\sim$3000 m offset.
 %
 \begin{figure}[!htb]
@@ -228,7 +227,7 @@ Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spr
 \end{figure}
 %
 
-Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal faulting that occurs alternatingly on both sides of the ridge axis. Figure \ref{fig:abyssalhill}A shows multibeam bathymetry data \add[EC]{for XXX ridge, where abyssal hills are observed and explained as a product of alternating small-offset normal faults}. Figure \ref{fig:abyssalhill}\annote[EC]{C and D}{What about B? You should show more care with explaining figures. I\rq{}ve said this many times but you shouldn\rq{}t just throw a figure at readers: You have to engage in explaining what is being shown and why you are showing it}. point out the feature of abyssal hills, the offsets of the faults are much smaller than that of detachment fault.
+Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal faulting that occurs alternatingly on both sides of the ridge axis. Figure \ref{fig:abyssalhill}A shows multibeam bathymetry data for Southwest Indian ridge, where abyssal hills are observed and explained as a product of alternating small-offset normal faults. Figure \ref{fig:abyssalhill}B, the bathymetric cross section, displays a symmetric pattern of small-offset faults. Figure \ref{fig:abyssalhill}C and D. point out the feature of abyssal hills more in detail, the offsets of the faults are much smaller than that of detachment fault.
 %
 \begin{figure}[!htb]
 	\centering
@@ -242,24 +241,21 @@ Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal 
 FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of momentum and energy for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Lavier2002}. By solving the conservation of momentum, the accelerations are integrated in time to give updated velocities, strains and strain rates. In addition, using the constitutive laws the strains and strain rates are used to calculate new elastic and viscous stresses. These stresses are used to determine the accelerations for the next step of calculation. The FLAC code that I used for this study is available at \url{https://github.com/heec12/non-uniform_plate_growth}. Also, the input parameter files necessary for reproducing the results presented here are available.
 
 \section{Model Setup}
-Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. \note[EC]{If the Maxwell viscoelastic unit diagram is so important as for you to show it here, add a proper caption and spend more efforts to described it. Otherwise, don\rq{}t show the figure.}
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.6\linewidth]{./figs/maxwell.png}
-%	\caption{}
-	\label{fig:maxwell}
-\end{figure}
-%
+Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. 
 For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates \note[EC]{Why the subscript `s\rq{} and `d\rq{}? Also, make sure to explain all the symbols introduced as you did for the equation for the yield stress. The same goes with the viscosity formula.}.
 \begin{align} \label{srate}
-  \dot{\epsilon} &=  \dot{\epsilon_s} +  \dot{\epsilon_d} \\
+  \dot{\epsilon} &=  \dot{\epsilon_{els}} +  \dot{\epsilon_{vis}} \\
                         &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
 \end{align}
+where $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity.
+
+%
 Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}.
 \begin{align} \label{Visc}
  \eta = \frac{1}{4} \bigg( \frac{4}{3A} \bigg)^{1/n} \dot{\epsilon}^{(1/n)-1} \exp\bigg(\frac{Q}{nRT}\bigg)
 \end{align}
+where $n$ is the power-law exponent, $A$ is the pre-exponential factor that depends on temperature and pressure, $Q$ is the quality factor, $R$ is the universal gas constant, and $T$ is temperature.
+%
 
 Plastic yielding is controlled by the strain-weakening Mohr-coulomb plasticity model. In this model, the yield stress is determined as
 \begin{align}
@@ -282,7 +278,7 @@ Strain weaekning is realized by decreasing cohesion with the total accumulated p
 	        A & From Eq \ref{Visc} & 190 & \\
 	        E & Activation energy & 4.85e+5 & $kJ/mol$ \\
 	        $\lambda$ & 1st Lam\'e parameter & 12 & GPa\\
-	        $\mu$ & \annote[EC]{Shear modulus}{But the symbol is also used for friction coefficient. Straighten this out.} & 12 & GPa\\
+	        $G$ & Shear modulus & 12 & GPa\\
 	        $C_{max}$ & Maximum cohesion & 44 & MPa\\
 	        $C_{min}$ & Minimum cohesion & 4 & MPa\\
 		\bottomrule
@@ -353,7 +349,7 @@ To avoid undesirable boundary failure, I search for an appropriate rate of incre
 
 Unlike Case II, this group of models have prescribed $x$ component boundary force, ($\boldsymbol{F}_{bdy}$)$_x$ on the boundareis of lithosphere. The net force resulting at the boundary nodes, $(\boldsymbol{F}_{res})$, is determined as the sum of $\boldsymbol{F}_{bdy}$ and time-evolving $\boldsymbol{F}_{int}$.
 
-When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earlier? If not, you will have to introduce this and the detachment faulting beforehand. You can refer to one of the earlier figures for the alternating faulting but none seems to show the detachment fautling. This explanation deserves a separate paragraph or a section because you can also clarify that faulting modes are the only characteristic you care about in this study. For instance, you are not going to compare the surface topography from a model with actualy bathymetry, right?} \add[HC]{See 'Observed bathymetry and faulting modes' section?} is expected~\citep{Tucholke2008}. The evolution of alternating faulting can be divided as three stages: incipient, mature and terminal stages. At the incipent stage (Figure \ref{fig:faultstage}A), new fault occurs on one side of the ridge axis. The fault heave increases and fault dip decreases as fault grows during the mature stage (Figure \ref{fig:faultstage}B). The terminal stage is characterized by the replacement of the locked fault by a new near-axis fault on the opposite side of ridge axis. 
+When M=0.8, the alternating faulting is expected~\citep{Tucholke2008}. The evolution of alternating faulting can be divided as three stages: incipient, mature and terminal stages. At the incipent stage (Figure \ref{fig:faultstage}A), new fault occurs on one side of the ridge axis. The fault heave increases and fault dip decreases as fault grows during the mature stage (Figure \ref{fig:faultstage}B). The terminal stage is characterized by the replacement of the locked fault by a new near-axis fault on the opposite side of ridge axis. 
 %
 \begin{figure}[!htb]
 	\centering
@@ -362,7 +358,7 @@ When M=0.8, \annote[EC]{the alternating faulting}{Did you explain this term earl
 	\label{fig:faultstage}
 \end{figure}
 
-I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ ($\overline{(\boldsymbol{F}_{res})_x}$) from \annote[EC]{a kinematic model}{Correct this.} with the same value of M. While a kinematic model with a desired value of M is run, $(\boldsymbol{F}_{int})_x$ values on all the nodes on the side boundaries are recorded. Those values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over the period from the mature stage of the first fault to the incipient stage of the new fault on the opposite side.
+I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ ($\overline{(\boldsymbol{F}_{res})_x}$) from $(\boldsymbol{F_{res}})_x =0$ model with the same value of M. While a  $(\boldsymbol{F_{res}})_x =0$ model with a desired value of M is run, $(\boldsymbol{F}_{int})_x$ values on all the nodes on the side boundaries are recorded. Those values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over the period from the mature stage of the first fault to the incipient stage of the new fault on the opposite side.
 
 I let $(\boldsymbol{F_{res}})_x$ be computed only on the nodes in the brittle state, in which I assume temperature is lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming that the ductile mantle is only passively pulled up beneath the spreading center and dragged along by the brittle lithosphere, I set ($\boldsymbol{F}_{res}$)$_x$ of the ductile parts of the side boundaries to be zero. This treatment is equivalent to assumging that the boundary force is perfectly balanced with the viscous resistance on the ductile portions of the boundaries. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
 
@@ -385,36 +381,31 @@ The kinematic models reproduce the faulting modes for each M value reported in t
 	\label{fig:kfault_m08}
 \end{figure}
 
-Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$), x component of the nodal velocities averaged over the nodes on each side of the ridge axis, show different pattern depending on M values. in the kinematic models. When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.5 cm/yr on right-side plate and 2.2 cm/yr on left-side plate (Figure \ref{fig:km05}). At M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:km08}). For the first 190 Kyrs, the right-side plate is in a low-velocity phase while the left-side plate is in a high-velocity phase. From 190 to 330 Kyrs, now the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. \note[EC]{I thought you would show the mean horizontal plate velocity plot after removng the remeshing signals. They are included in the current plots, right?} \note[HC]{The problem is that the filtered signal cannot represent the sharp edges. So I think not showing is better especially in kinematic and Fres=0 cases. I'll explain more of this in our meeting.} This pattern repeats until the model ends.
+Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$), $x$ component of the nodal velocities averaged over the nodes on each side of ~15km from the ridge axis, remain constant value in the kinematic models.
+%show different pattern depending on M values in the kinematic models. 
+When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:km05}). Also, at M = 0.8, $\overline{\boldsymbol{v}_x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:km08}). 
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/km05.png}
-	\caption{Mean horizontal plate velocities from the M=0.5 kinematic model. For reference, 2.5 cm/yr and $-$2.2 cm/yr are plotted as blue and red lines.}
+	\caption{Mean horizontal plate velocity obtained from M=0.5 kinematic model. Red lines are filtered velocity.}
 	\label{fig:km05}
 \end{figure}
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/km08.png}
-	\caption{Mean horizontal plate velocity obtained from M=0.8 kinematic model. As a reference, 2.5 cm/yr and $-$2.5 cm/yr are plotted as blue and red lines.}
+	\caption{Mean horizontal plate velocity obtained from M=0.8 kinematic model. Red lines are filtered velocity.}
 	\label{fig:km08}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.95\linewidth]{./figs/kinm08.png}
-	\caption{\textbf{A.} Raw mean horizontal plate velocity from M=0.8 kinematic model. \textbf{B.} Mean horizontal plate velocity after removing the remeshing effects. The red and blue lines are the picked mean horizontal plate velocity. \note[HC]{How about this way?}}
-	\label{fig:kinm08}
 \end{figure}
 %However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
-
 \section{$(\boldsymbol{F_{res}})_x=0$ models}
 
-This condition represents the hypothetical state where $\boldsymbol{F}_{bdy}$ is adjusted such that it perfectly counteracts $\boldsymbol{F}_{int}$ making $\boldsymbol{F}_{res}$ equal to zero all the time. Since the net residual force is zero on the side boundaries, the models under this condition show constant plate velocity as expected for a motion with zero acceleration.
+This condition represents the hypothetical state where $\boldsymbol{F}_{bdy}$ is adjusted such that it perfectly counteracts $\boldsymbol{F}_{int}$ making $\boldsymbol{F}_{res}$ equal to zero all the time. Simplest condition in force-driven models. Since the net residual force is zero on the side boundaries, the models under this condition show constant plate velocity as expected for a motion with zero acceleration.
 
 \subsection{Constant M models}
 
-With this force boundary condition and fixed M value, models mimic the appearance of the constant velocity boundary condition models (Figure \ref{fig:force0}). Models produce one master detachment fault when M = 0.5 (Figure \ref{fig:f0fault}A) and series of small offset normal faults when M = 0.8(Figure \ref{fig:f0fault}A).
+With this force boundary condition and fixed M value, models mimic the appearance of the constant velocity boundary condition models (Figure \ref{fig:force0}). Models produce one master detachment fault when M = 0.5 (Figure \ref{fig:f0fault}A) and series of small offset normal faults when M = 0.8(Figure \ref{fig:f0fault}B).
 %
 \begin{figure}[!htb]
 	\centering
@@ -429,7 +420,9 @@ With this force boundary condition and fixed M value, models mimic the appearanc
 	\label{fig:f0fault}
 \end{figure}
 
-The models with $(\boldsymbol{F_{res}})_x=0$ condition show uniform horizontal plate velocity. At M = 0.5, plate velocities remain constant at 2.5 cm/yr on the right-side plate and 2.7 cm/yr on the left-side plate (Figure \ref{fig:f0vel}A). When M = 0.8, plate velocities have two phases (Figure \ref{fig:f0vel}B). For the first 280 Kyrs, the right-side plate is in a high-velocity phase while the left-side plate is in a low-velocity phase. From 280 to 420 Kyrs, now the right-side plate is in a low-velocity phase and the left-side plate is in a high-velocity phase. This pattern repeats until the model ends.
+The models with $(\boldsymbol{F_{res}})_x=0$ condition show different behavior of $\overline{\boldsymbol{v}_x}$ comparing to kinematic models. At M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.3 cm/yr on the right-side plate and 2.15 cm/yr on the left-side plate after forming a normal fault (Figure \ref{fig:f0vel}A). 
+When M = 0.8, $\overline{\boldsymbol{v}_x}$ change over time. From 400 to 520 Kyrs and 780 to 900 Kyrs, $\overline{\boldsymbol{v}_x}$ of both left-and right-side reduce.
+%When M = 0.8, $\overline{\boldsymbol{v}_x}$ have two phases (Figure \ref{fig:f0vel}B). From 200 to 400 Kyrs, the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. From 400 to 600 Kyrs, now the right-side plate is in a low-velocity phase and the left-side plate is in a high-velocity phase. This pattern repeats until the model ends.
 
 \begin{figure}[!htb]
 	\centering
@@ -457,7 +450,7 @@ Two-phase M history models show expected faulting modes. When the model is in th
 	\label{fig:f0fault05to08}
 \end{figure}
 
-The horizontal plate velocity changes when M value changes (400 Kyrs later). In M = 0.5 to 0.8 case, the right-side plate velocity remains constant at 2.5 cm/yr; and the left-side plate velocity remains constant at 2.7 cm/yr until 400 Kyrs. After changing M value to 0.8, two-phased velocity is visible due to the alternating faulting mode. From 400 to 570 Kyrs, the right-side plate is in a high-velocity phase while the left-side plate is in a low-velocity phase. From 570 to 700 Kyrs, the right-side plate starts to be in a low-velocity phase and the left-side plate is in a high-velocity phase. This pattern repeats until the model ends (Figure \ref{fig:f005to08}). In the case of M = 0.8 to 0.5, the horizontal plate velocity follows M = 0.8 model at initial stage. After changing M value to 0.5, the left-side plate velocity becomes constant at 2.7 cm/yr and the right-side plate velocity becomes constant at 2.3 cm/yr (Figure \ref{fig:f008to05}).
+$\overline{\boldsymbol{v}_x}$ changes when M value changes (400 Kyrs later). In M = 0.5 to 0.8 case, the right-side $\overline{\boldsymbol{v}_x}$ remains constant at 2.5 cm/yr; and the left-side $\overline{\boldsymbol{v}_x}$ remains constant at 2.7 cm/yr until 400 Kyrs. After changing M value to 0.8, two-phased velocity is visible due to the alternating faulting mode. From 400 to 570 Kyrs, the right-side plate is in a high-velocity phase while the left-side plate is in a low-velocity phase. From 570 to 700 Kyrs, the right-side plate starts to be in a low-velocity phase and the left-side plate is in a high-velocity phase. This pattern repeats until the model ends (Figure \ref{fig:f005to08}). In the case of M = 0.8 to 0.5, $\overline{\boldsymbol{v}_x}$ follows M = 0.8 model at initial stage. After changing M value to 0.5, the left-side $\overline{\boldsymbol{v}_x}$ becomes constant at 2.7 cm/yr and the right-side $\overline{\boldsymbol{v}_x}$ becomes constant at 2.3 cm/yr (Figure \ref{fig:f008to05}).
 
 \begin{figure}[!htb]
 	\centering
@@ -478,7 +471,7 @@ This condition characterizes both $(\boldsymbol{F_{int}})_x$ and $(\boldsymbol{F
 
 \subsection{Force balanced models}
 
-Modeled fault behaviors from constant $(\boldsymbol{F_{bdy}})_x$ models are similar to that of kinematic models and  $(\boldsymbol{F_{res}})_x = 0$  models. For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:fbfault}A). In my model, the  faulting mode lasts until 650 Kyrs. For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:fbfault}B).
+Modeled fault behaviors from constant $(\boldsymbol{F_{bdy}})_x$ models are similar to that of kinematic models and  $(\boldsymbol{F_{res}})_x = 0$ models. For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:fbfault}A). For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:fbfault}B).
 
 \begin{figure}[!htb]
 	\centering
@@ -500,10 +493,6 @@ When M=0.8, both sides of plate velocities change more vigorously than other mod
 	\label{fig:m05vel}
 \end{figure}
 
-%\subsubsection{M = 0.8}
-
-%When $M=0.8$, fault migrates toward off-axis. The fault eventually becomes inactive and is replaced by new and near-axis fault.
-
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.9\linewidth]{./figs/m08vel.png}
@@ -518,23 +507,6 @@ Hotter mantle models show expected faulting modes for each M values. For M = 0.5
 Comparing to the constant $(\boldsymbol{F_{bdy}})_x$ models with normal mantle temperature, 
 
 %Long term and large magnitude variation which cannot be explained by fault evolution may be caused by changes of the plate thermal state. By varying heat injection rate of the model, different behaviors of long term and large magnitude plate speed variation are observed. 
-
-%\begin{table}[h!]
-%	\centering
-%	\caption{Percentage of P-wave and S-wave RMS reduction with respect to the original for different smoothing values after 20 iterations. The P-wave RMS reduction when using smoother = 10 is negative, which means that the inversion does not converge under this configuration.}
-%	\label{tab:rms_reduction}
-%	\begin{tabular}{ccc}
-%		\toprule
-%		Smoother & P-wave RMS reduction & S-wave RMS reduction \\
-%		\midrule
-%		10 & -14.7398\% & 9.9293\% \\
-%		64 & 20.3963\% & 17.455\% \\
-%		100 & 19.2424\% & 14.1327\% \\
-%		128 & 17.3583\% & 7.5101\% \\
-%		256 & 11.8203\% & 2.3572\% \\
-%		\bottomrule
-%	\end{tabular}
-%\end{table}
 
 \chapter{Discussion}
 
@@ -551,7 +523,8 @@ Results of horizontal plate velocities in kinematic models indicate that the fau
 Similarly, in the cases of force-driven model, interaction between dynamic driving velocity from boundary force and opposite direction velocity from normal faults controls the plate speed in force.
 When half of total plate growth is accommodated by magma intrusion at spreading center, the velocity of one plate is always lower than another. Models produce repeated pattern of two-phase plate velocity when most of total plate spreading is taken up by dike.
 
-Besides these velocity variations, another fluctuation with greater amplitude and frequency is observed in constant $(\boldsymbol{F_{bdy}})_x$ models. Fault evolution is not sufficient to explain this long term and large magnitude variation. This fluctuation may come from the deep interior, as the feedback between deep mantle dynamics and surface plate motion. Hotter mantle conditioned models 
+Besides these velocity variations, another affecting factor is observed in force-driven models, especially when M = 0.8. From 400 to 520 Kyrs and 780 to 900 Kyrs in $(\boldsymbol{F_{res}})_x=0$ model with M = 0.8, Both sides of $\overline{\boldsymbol{v}_x}$ reduce. In this time period, only the nodal velocities near dike zone and at the boundary are about 2.5 cm/yr, while inner plate nodal velocities are equal or less than 1 cm/yr. It may due to the internal force ($\boldsymbol{F}_{int}$) of the model. Resistance force occurring against the stretching force lag the plate to be grown.
+%Besides these velocity variations, another fluctuation with greater amplitude and frequency is observed in constant $(\boldsymbol{F_{bdy}})_x$ models. Fault evolution is not sufficient to explain this long term and large magnitude variation. This fluctuation may come from the deep interior, as the feedback between deep mantle dynamics and surface plate motion. Hotter mantle conditioned models 
 
 \chapter{Conclusion}
 
