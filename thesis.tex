@@ -222,7 +222,7 @@ Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spr
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.6\linewidth]{./figs/occ.png}
-	\caption{Multibeam bathymetry data of Mid-Atlantic Ridge (MAR) gridded at 200m spacing (RIDGE Multibeam Synthesis). Topographic profile along estimated direction of spreading shows detachment fault. From \citet{Lavier2000}}
+	\caption{\note[EC]{Add geographic reference.} Multibeam bathymetry data of Mid-Atlantic Ridge (MAR) gridded at 200m spacing (RIDGE Multibeam Synthesis). Topographic profile along estimated direction of spreading shows detachment fault. From \citet{Lavier2000}}
 	\label{fig:occ}
 \end{figure}
 %
@@ -232,12 +232,12 @@ Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.98\linewidth]{./figs/abyssalhill.pdf}
-	\caption{\textbf{A.} Multibeam bathymetric data of the Southwest Indian Ridge (SWIR). White line is the ridge axis. \textbf{B.} Bathymetric cross sections along the spreading direction of abyssal hills of \textbf{A}. \textbf{C.} Enlargement on 'zoom a'. Dashed line is fault surface. \textbf{D.} Same with \textbf{C}, but on 'zoom b'. Modified from \citet{Mendel2003}}
+	\caption{\note[EC]{Show where the SWIR is.} \textbf{A.} Multibeam bathymetric data of the Southwest Indian Ridge (SWIR). White line is the ridge axis. \textbf{B.} Bathymetric cross sections along the spreading direction of abyssal hills of \textbf{A}. \textbf{C.} Enlargement on 'zoom a'. Dashed line is fault surface. \textbf{D.} Same with \textbf{C}, but on 'zoom b'. Modified from \citet{Mendel2003}}
 	\label{fig:abyssalhill}
 \end{figure}
 %
 
-\section{Numerical methods for approximate solution}
+\section{\note[EC]{What do you approximate? The exact solution to the governing equations. So, logically, you need to introduce what equations are being solved first.} Numerical methods for approximate solution}
 FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1993} solves the equations describing conservation of momentum and energy for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Lavier2002}. By solving the conservation of momentum, the accelerations are integrated in time to give updated velocities, strains and strain rates. In addition, using the constitutive laws the strains and strain rates are used to calculate new elastic and viscous stresses. These stresses are used to determine the accelerations for the next step of calculation. The FLAC code that I used for this study is available at \url{https://github.com/heec12/non-uniform_plate_growth}. Also, the input parameter files necessary for reproducing the results presented here are available.
 
 \section{Model Setup}
@@ -247,7 +247,7 @@ For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted,
   \dot{\epsilon} &=  \dot{\epsilon_{els}} +  \dot{\epsilon_{vis}} \\
                         &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
 \end{align}
-where $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity.
+where $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity \note[EC]{What about dotted symbols? Also, put the dot on epsilon only.}
 
 %
 Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}.
@@ -381,9 +381,9 @@ The kinematic models reproduce the faulting modes for each M value reported in t
 	\label{fig:kfault_m08}
 \end{figure}
 
-Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$), $x$ component of the nodal velocities averaged over the nodes on each side of $\sim$15 km from the ridge axis, remain constant value in the kinematic models.
+Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$) is defined as $x$ component of the nodal velocities averaged over the top surface nodes $\sim$15 km away from the ridge axis and, as expected, remains constant in the kinematic models. The central 30 km-wide area is excluded from averaging to 
 %show different pattern depending on M values in the kinematic models. 
-When M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:km05}). Also, at M = 0.8, $\overline{\boldsymbol{v}_x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:km08}). 
+When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:km05}). Also, at M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:km08}). 
 
 \begin{figure}[!htb]
 	\centering
