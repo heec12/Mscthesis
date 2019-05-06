@@ -242,12 +242,12 @@ FLAC (Fast Lagrangian Analysis of Continua) method \citep{Cundall1982, Poliakov1
 
 \section{Model Setup}
 Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. 
-For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates \note[EC]{Why the subscript `s\rq{} and `d\rq{}? Also, make sure to explain all the symbols introduced as you did for the equation for the yield stress. The same goes with the viscosity formula.}.
+For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates.
 \begin{align} \label{srate}
-  \dot{\epsilon} &=  \dot{\epsilon_{els}} +  \dot{\epsilon_{vis}} \\
+  \dot{\epsilon} &=  {\dot{\epsilon}}_{els} +  {\dot{\epsilon}}_{vis} \\
                         &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
 \end{align}
-where $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity \note[EC]{What about dotted symbols? Also, put the dot on epsilon only.}
+where $\dot{\epsilon}$ is strain rate, $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity.
 
 %
 Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}.
