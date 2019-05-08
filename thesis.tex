@@ -396,19 +396,13 @@ The kinematic models reproduce the faulting modes for each M value reported in t
 \end{figure}
 Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$) is defined as $x$ component of the nodal velocities averaged over the top surface nodes $\sim$15 km away from the ridge axis and, as expected, remains constant in the kinematic models. The central 30 km-wide area is excluded from averaging not to consider faulting effects. To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. When the remeshing occurs, the interpolation process results in out-of-balance forces at the nodes and produces artificial accelerations. The raw value of $\overline{\boldsymbol{v}}_{x}$ includes the noise produced due to these artificial accelerations .To see $\overline{\boldsymbol{v}}_{x}$ more clearly, I considered only frequencies under 20 Hz by using second order Butterworth low-pass filter (Figure \ref{fig:filter}).
 
-When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:km05}). Also, at M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:km08}). Filtered $\overline{\boldsymbol{v}}_{x}$ is plotted as a red line.
+When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:kmhv}A). Also, at M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:kmhv}B). Filtered $\overline{\boldsymbol{v}}_{x}$ is plotted as a red line.
 %
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.9\linewidth]{./figs/hmvkm05.png}
-	\caption{Mean horizontal plate velocity obtained from M=0.5 kinematic model. Red lines are filtered velocity.}
-	\label{fig:km05}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.9\linewidth]{./figs/hmvkm08.png}
-	\caption{Mean horizontal plate velocity obtained from M=0.8 kinematic model. Red lines are filtered velocity.}
-	\label{fig:km08}
+	\includegraphics[width=0.98\linewidth]{./figs/kmhv.png}
+	\caption{\textbf{A.} Mean horizontal plate velocity obtained from M=0.5 kinematic model results. Red lines are filtered velocity. \textbf{B.} Same as \textbf{A} but for M = 0.8. }
+	\label{fig:kmhv}
 \end{figure}
 %However, the velocity-driven models do not show the observed non-uniform plate velocity by simply changing magmatism at the spreading center.
 
@@ -492,9 +486,12 @@ Overall, $\overline{\boldsymbol{v}}_{x}$ apparently change in force-driven model
 First of all, remeshing frequencies in force-driven models were manually adjusted to remove remeshing noise. The amplitude of the noise %produced from remeshing process 
 are greater when the remeshing occurs less often. I tried 1 Kyr$^{-1}$ to 10 Kyr$^{-1}$ as forced remeshing frequencies. Increasing remeshing frequency helped diminishing the noise. However, the models with high remeshing frequency failed to produce expected faulting style.
 
-I also tried to decrease the time step immediately after the remeshing occurs and increase it linearly to its original value over 1000 time steps in order to dampen the remeshing effects and hence remove the noise peaks. Varying the decreased time steps from 10\% to 80\% did not lead to significant progress in removing noise. Further studies including increasing the decreased time step period to dampen the remeshing effects will be needed to explore how the plate velocity change in the models. 
+I also tried to decrease the time step immediately after the remeshing occurs and increase it linearly to its original value over next 1000 time steps in order to dampen the remeshing effects and hence remove the noise peaks. Varying the decreased time step value from 10\% to 80\% did not lead to significant progress in removing noise. Adjusting increasing the decreased time step period to 2000 time steps did not result in dampened remeshing noise.
+% to dampen the remeshing effects will be needed to explore how the plate velocity change in the models. 
 
-To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. Still, the remeshing noise is not perfectly removed and confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
+In addition, except for M, there is one or more factors involved in shaping faults near the mid-ocean ridge axis in force driven models. I observed that the increasing $(\boldsymbol{F_{res}})_x$ slope affects the faulting mode. 1 Pa/yr slope produces detachment fault, while 10 Pa/yr or greater slope produces alternating faulting mode. Steeper slope is required for alternating faults. Since the factor M is based on kinematic model, another factor to represent magmatism in force driven mid-ocean ridge model is required such as dynamic M.
+
+%To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. Still, the remeshing noise is not perfectly removed and confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
 
 %Similarly, in the cases of force-driven model, interaction between dynamic driving velocity from boundary force and opposite direction velocity from normal faults controls the plate speed in force. When half of total plate growth is accommodated by magma intrusion at spreading center, the velocity of one plate is always lower than another. Models produce repeated pattern of two-phase plate velocity when most of total plate spreading is taken up by dike.
 
@@ -502,6 +499,10 @@ To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at 
 %Besides these velocity variations, another fluctuation with greater amplitude and frequency is observed in constant $(\boldsymbol{F_{bdy}})_x$ models. Fault evolution is not sufficient to explain this long term and large magnitude variation. This fluctuation may come from the deep interior, as the feedback between deep mantle dynamics and surface plate motion. Hotter mantle conditioned models 
 
 \chapter{Conclusion}
+
+
+
+To remove the remeshing noise, I forcefully remeshed the models after every several kiloyears. I also tried to decrease the time step immediately after the remeshing events and increase it linearly to its original value over next 1000 time steps. However, none of approaches showed meaningful diminished remeshing noise and hence confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
 
 \bibliography{references}     % before changing bibliographystyle, remove *.bbl files in your working directory
 \bibliographystyle{agsm.bst}  % the closest style to the University of Memphis Thesis Style Guide
