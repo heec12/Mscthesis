@@ -487,10 +487,26 @@ Overall, $\overline{\boldsymbol{v}}_{x}$ apparently change in force-driven model
 , because remeshing effects could not be perfectly removed. The amount of changes in $\overline{\boldsymbol{v}}_{x}$ is in the range of changes of remeshing noise. The more the models are complex, the less the models are stable and hence generate more noise from remeshing.
 
 First of all, remeshing frequencies in force-driven models were manually adjusted to remove remeshing noise. The amplitude of the noise %produced from remeshing process 
-are greater when the remeshing occurs less often. I tried 1 Kyr$^{-1}$ to 10 Kyr$^{-1}$ as forced remeshing frequencies. Increasing remeshing frequency helped diminishing the noise. However, the models with high remeshing frequency failed to produce expected faulting style.
+are greater when the remeshing occurs less often. I tried 1 Kyr$^{-1}$ to 10 Kyr$^{-1}$ as forced remeshing frequencies. Increasing remeshing frequency helped diminishing the noise. However, the models with frequent remeshing failed to produce expected faulting style.
 
-I also tried to decrease the time step immediately after the remeshing occurs and increase it linearly to its original value over next 1000 time steps in order to dampen the remeshing effects and hence remove the noise peaks. Varying the decreased time step value from 10\% to 80\% did not lead to significant progress in removing noise. Adjusting increasing the decreased time step period to 2000 time steps did not result in dampened remeshing noise.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{./figs/dtadjust.png}
+	\caption{Conceptual sketch showing adjusting time step method. Red line is case I, decreasing time step to 10\% of original value. Blue line is case II, decreasing time step to 80\% of original value.}
+	\label{fig:dtadj}
+\end{figure}
+%
+I also tried to decrease the time step immediately after the remeshing occurs and increase it linearly to its original value over next 1000 time steps in order to dampen the remeshing effects and hence remove the noise peaks. Case I shown in Figure \ref{fig:dtadj} as a red line is decreasing the time step to 10\% right after the remeshing events. Case II ( blue in Figure \ref{fig:dtadj} is same as case I but to 80\% of original time step. Case III is decreasing the time step to 10\% after remeshing and increasing it over next 2000 time steps. Case I and III are plotted in Figure \ref{fig:remeshing} as B and C.
+Comparing to the original $\overline{\boldsymbol{v}}_{x}$ plot (Figure \ref{fig:remeshing}A), none of above cases lead to significant progress in removing noise. This results suggest that adjusting size of time step does not remarkably affect the remeshing noise. 
 % to dampen the remeshing effects will be needed to explore how the plate velocity change in the models. 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.98\linewidth]{./figs/remeshing.png}
+	\caption{\textbf{A.} Raw data of mean horizontal plate velocity. \textbf{B.} Mean horizontal plate velocity after case I filtering. \textbf{C.} Same as \textbf{B} but for case III. \textbf{D.} Mean horizontal plate velocity not printing the value over 200 time steps after remeshing events.}
+	\label{fig:remeshing}
+\end{figure}
+
+Not to consider remeshing effects at all, I stop printing $\overline{\boldsymbol{v}}_{x}$ over next 2000 time steps after remeshing events. As shown in Figure \ref{fig:remeshing}D, this method show the notable improvement in diminishing abnormal peaks from remeshing process. However, this filtering method is not applicable in constant $(\boldsymbol{F_{bdy}})_x$ models. It results in brittle failure in the models. Further studies are needed to develop.
 
 In addition, except for M, there is one or more factors involved in shaping faults near the mid-ocean ridge axis in force driven models. I observed that the increasing $(\boldsymbol{F_{res}})_x$ slope affects the faulting mode. 1 Pa/yr slope produces detachment fault, while 10 Pa/yr or greater slope produces alternating faulting mode. Steeper slope is required for alternating faults. Since the parameter M is based on kinematic model, another parameter to represent magmatism in force driven mid-ocean ridge model is required such as dynamic M.
 
@@ -503,9 +519,9 @@ In addition, except for M, there is one or more factors involved in shaping faul
 
 \chapter{Conclusion}
 
-Force boundary conditioned models show apparently changing $\overline{\boldsymbol{v}}_{x}$ which cannot be observed in kinematic models. $\overline{\boldsymbol{v}}_{x}$ change more than 1 cm/yr over 1 Myr regardless of faulting styles. However, the amplitude of remeshing noise is greater than $\overline{\boldsymbol{v}}_{x}$ change. 
+To provide an explanation of observed non-uniform plate growth, I tested three different boundary conditions in mid-ocean ridge models. All three cases show similar faulting style depending on M value, but there are differences in plate velocities between three models. In kinematic models, $\overline{\boldsymbol{v}}_{x}$ always remain at constant value. Varying the magmatism at the spreading center does not affect the plate speed. Thus, the observations in mid-ocean ridge cannot be explained by existing kinematic models. When $(\boldsymbol{F_{res}})_x = 0$ is given as a boundary condition, the models mimic the behavior of kinematic models. Overall pattern of $\overline{\boldsymbol{v}}_{x}$ remains constant, but slight changes were observed. It possibly come from the faulting, since this small difference in $\overline{\boldsymbol{v}}_{x}$ is only observed in the plate containing fault. Therefore, $\overline{\boldsymbol{v}_{x}}$ is more strongly affected by faulting style than kinematic models. Constant $(\boldsymbol{F_{bdy}})_x$ conditioned models show apparently changing $\overline{\boldsymbol{v}}_{x}$ which cannot be observed in kinematic models and $(\boldsymbol{F_{res}})_x = 0$ models. $\overline{\boldsymbol{v}}_{x}$ change more than 1 cm/yr over 1 Myr which is greater than one third of original plate velocity regardless of faulting styles. The model results support the hypothesis that force driven model is required to explain observed non-uniform plate growth.
 
-To overcome remeshing noise issue, I forcefully remeshed the models after every several kiloyears. I also tried to decrease the time step immediately after the remeshing events and increase it linearly to its original value over next 1000 time steps. However, none of approaches showed meaningful diminished remeshing noise and hence confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
+However, the amplitude of remeshing noise is greater than $\overline{\boldsymbol{v}}_{x}$ change. To overcome remeshing noise issue, I forcefully remeshed the models after every several kiloyears. I also tried to decrease the time step immediately after the remeshing events and increase it linearly to its original value over next 1000 time steps. However, none of approaches showed meaningful diminished remeshing noise and hence confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
 
 \bibliography{references}     % before changing bibliographystyle, remove *.bbl files in your working directory
 \bibliographystyle{agsm.bst}  % the closest style to the University of Memphis Thesis Style Guide
