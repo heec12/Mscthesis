@@ -345,7 +345,7 @@ Since $F_{int}$ is only a response to the boundary force and it is $F_{res}$ tha
 
 The magnitude of the horizontal component of the residual force, $(\boldsymbol{F}_{res})_{x}$ is initially zero but linearly increases with time. Abrupt application of the residual force often causes the faults to form near the side walls rather than at the spreading center.
 % the mean plate speed quadratically
-To avoid undesirable boundary failure, I search for an appropriate rate of increasing $(\boldsymbol{F}_{res})_{x}$ with time by observing faulting behaviors for the values from 1 to 1000 Pa/yr (Table \ref{tab:slope}). When the plate speed reaches 2.5 cm/yr, I set the magnitude of $(\boldsymbol{F}_{res})_{x}$ to be zero in order to maintatin the velocity of the plate.
+To avoid undesirable boundary failure, I search for an appropriate rate of increasing $(\boldsymbol{F}_{res})_{x}$ with time by observing faulting behaviors for the values from 1 to 1000 Pa/yr (Table \ref{tab:slope}). 1 Pa/yr slope is used for M = 0.5 models, and 10 Pa/yr is used for M= 0.8 models. When the plate speed reaches 2.5 cm/yr, I set the magnitude of $(\boldsymbol{F}_{res})_{x}$ to be zero in order to maintatin the velocity of the plate.
 %
 \begin{table}[h!]
 	\centering
@@ -355,10 +355,9 @@ To avoid undesirable boundary failure, I search for an appropriate rate of incre
 		\toprule
 		Slope, Pa/yr & M = 0.5 & M = 0.8\\
 		\midrule
-          	1 & Detachment fault forms 120 Kyrs later & Alternating faulting is visible\\
-		10 & Detachment fault forms 100 Kyrs later & Faulting repeats only on right side\\
-		100 & Detachment fault forms 81 Kyrs later & Alternating faulting mode, \\
-		&&but faulting is dominanted on right side\\
+          	1 & Detachment fault forms 71 Kyrs later & Detachment fault forms 240 Kyrs later\\
+		10 & Boundary failure occurs & Alternating faulting mode \\
+		100 & Boundary failure occurs & Alternating faulting mode \\
 		1000 & Boundary failure occurs & Boundary failure occurs\\
 		\bottomrule
 	\end{tabular}
