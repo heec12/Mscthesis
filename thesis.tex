@@ -96,7 +96,8 @@ Acknowledments~
 
 \thispagestyle{plain}
 
-Evidence for asymmetric plate growth, variable crustal thickness, and non-uniform spreading rates is ubiquitous on the seafloor. However, conventional numerical modeling approaches are often incapable of explaining the non-uniform growth of oceanic lithosphere. Noting that plate-boundary forces can dynamically determine plate speed by finding a balance against the resistance to extension at ridge axes, I introduce plate-boundary forces instead of kinematics to drive plate motions in numerical models for mid-ocean ridges. I construct such models using FLAC, an open-source finite element code for geodynamic simulations. My mid-ocean ridge models tested three different boundary conditions: kinematic models, residual net force, $(\boldsymbol{F_{res}})_x$ equals to zero models, and constant boundary force $(\boldsymbol{F_{bdy}})_x$ models. All three shows similar faulting style depending on M value, but plate velocity behave differently. Overall pattern of mean horizontal velocity is constant in kinematic and $(\boldsymbol{F_{res}})_x = 0$ models. Constant $(\boldsymbol{F_{bdy}})_x$ models show changing mean horizontal velocity more than 1 cm/yr in both M = 0.5 and 0.8 models. The model results support the hypothesis that force driven model is necessary to provide an explanation for observed non-uniform seafloor growth. However, the more the models are complex, the less the models are stable and generate noise from remeshing. Further studies in reducing remeshing noise will improve better understanding about the plate velocity.
+Evidence for asymmetric plate growth, variable crustal thickness, and non-uniform spreading rates is ubiquitous on the seafloor. However, conventional numerical modeling approaches are often incapable of explaining the non-uniform growth of oceanic lithosphere. Noting that plate-boundary forces can dynamically determine plate speed by finding a balance against the resistance to extension at ridge axes and at lithosphere-asthenosphere boundary, I introduce plate-boundary forces instead of kinematics to drive plate motions in numerical models for mid-ocean ridges. I construct such models using FLAC, an open-source finite element code for geodynamic simulations. My mid-ocean ridge models tested three different boundary conditions: Prescribed velocities, zero boundary force, %$(\boldsymbol{F_{res}})_x$ equals to zero models, 
+and constant non-zero boundary force. All three types of boundary conditions can produce faulting styles consistent with the previous studies but mean plate speeds respond differently to different boundary condition types. Mean plate speed is almost constant in the kinematic and zero boundary force models. The constant non-zero force boundary conditions make plates move at \add[EC]{XXX cm/yr} of mean speed but plate speed changes over time by more than 1 cm/yr. These model results suggest that even if far-field plate-driving forces are nearly constant, non-uniform seafloor growth can be resulted. However, further investigation is necessary for reducing numerical noise and extracting mean plate speed with greater confidence.
 
 \newpage
 
@@ -144,7 +145,7 @@ Numerical models including relationship between dike opening rate and plate sepa
 	\label{fig:hsr_muller}
 \end{figure}
 
-These previous studies have assumed the accretion of oceanic lithosphere at spreading centers to occur symmetrically and at a constant rate, but this assumption is not consistent with various observations \citep{Castelino2016, Flament2014, Martinez2006, Muller1998, Muller2008, Fedotova2017}. \citet{Castelino2016} explained anomalous bathymetry of the Mozambique basin and Riiser Larsen sea with the presence of thicker-than-usual oceanic crust older than 100 Ma. \citet{Flament2014} suggested that viscous lower mantle flow may represent topographic asymmetry of the South Atlantic. \citet{Martinez2006} identified non-corresponding trends in crustal thickness and spreading rate along the back-arc Eastern Lau Spreading Center. \citet{Muller2008} published global models for seafloor ages, spreading rates, and spreading asymmetry of ocean crust. If the two plates grew symmetrically at every divergent boundary, the spreading rates of the two plates would be the same and therefore relative proportions of crustal accretion on conjugate ridge flanks would be 50\% everywhere. However, their models clearly exhibit asymmetries in spreading rates and crustal accretion. For instance, in a South Atlantic region enclosed in white dashed boxes in Fig.~\ref{fig:hsr_muller}A, most of the South American plate shows a half-spreading rate of about 2-3 cm/yr while the youngest ocean basin on the African plate exhbits a lower spreading rate of 1-2 cm/yr. Correspondingly, the crustal accretion ratio is 50-60 \% on the South American plate while lower than 50 \% on the African plate. Most importantly, asymmetric plate growth is not specific to a particular region: It is a worldwide feature~\citep{Muller2008}.
+These previous studies have assumed the accretion of oceanic lithosphere at spreading centers to occur symmetrically and at a constant rate, but this assumption is not consistent with various observations \citep{Castelino2016, Flament2014, Martinez2006, Muller1998, Muller2008, Fedotova2017}. \citet{Castelino2016} explained anomalous bathymetry of the Mozambique basin and Riiser Larsen sea with the presence of thicker-than-usual oceanic crust older than 100 Ma. \citet{Flament2014} suggested that viscous lower mantle flow may represent topographic asymmetry of the South Atlantic. \citet{Martinez2006} identified non-corresponding trends in crustal thickness and spreading rate along the back-arc Eastern Lau Spreading Center. \citet{Muller2008} published global models for seafloor ages, spreading rates, and spreading asymmetry of ocean crust. If the two plates grew symmetrically at every divergent boundary, the spreading rates of the two plates would be the same and therefore relative proportions of crustal accretion on conjugate ridge flanks would be 50 \% everywhere. However, their models clearly exhibit asymmetries in spreading rates and crustal accretion. For instance, in a South Atlantic region enclosed in white dashed boxes in Fig.~\ref{fig:hsr_muller}A, most of the South American plate shows a half-spreading rate of about 2-3 cm/yr while the youngest ocean basin on the African plate exhbits a lower spreading rate of 1-2 cm/yr. Correspondingly, the crustal accretion ratio is 50-60 \% on the South American plate while lower than 50 \% on the African plate. Most importantly, asymmetric plate growth is not specific to a particular region: It is a worldwide feature~\citep{Muller2008}.
 %
 \begin{figure}[!htb]
 	\centering
@@ -153,14 +154,14 @@ These previous studies have assumed the accretion of oceanic lithosphere at spre
 	\label{fig:hsr_fedotova}
 \end{figure}
 
-The rate of plate grow is not only asymmetric across divergent boundaries but variable in time. Evdence can be found not only in the global spreading rates compiled by~\citet{Muller2008} but in regional surveys like CREST (Crustal Reflectivity Experiment Southern Transect)~\citep{Fedotova2017}. Data collected in the CREST expediction include half-spreading rates, times taken to form abyssal hills and abyssal hill heights. If plates grew at a constant rate, spreading rates and required times to form abyssal hills would be constant and byssal hill heights would be plotted as a sinusoidal curve with regular amplitude and frequency by assuming uniform plate spreading. However, the CREST data show significant variations in these observables over time (Figure \ref{fig:hsr_fedotova}). For instance, spreading rate varies by 15 mm/yr over the period of about 70 Myrs. Taken time to form abyssal hill varies by 450 Kyrs over the period of about 70 Myrs. These observations indicate non-uniform plate growing behavior on the seafloor.
-
+The rate of plate growth is not only asymmetric across divergent boundaries but also variable in time. Evdence can be found in the global spreading rates compiled by~\citet{Muller2008} as well as in regional surveys like CREST (Crustal Reflectivity Experiment Southern Transect)~\citep{Fedotova2017}. Data collected in the CREST expediction include half-spreading rates, times taken to form abyssal hills and abyssal hill heights. If plates grew at a constant rate, spreading rates and required times to form abyssal hills would be constant and byssal hill heights would be plotted as a sinusoidal curve with regular amplitude and frequency by assuming uniform plate spreading. However, the CREST data show significant variations in these observables over time (Figure \ref{fig:hsr_fedotova}). For instance, spreading rate varies by 15 mm/yr over the period of about 70 Myrs. Taken time to form abyssal hill varies by 450 Kyrs over the period of about 70 Myrs. These observations indicate non-uniform plate growing behavior on the seafloor.
+%
 Another evidence for both time-varying and asymmetric seafloor growth comes from SCARF(Student-led Cruise Along a Ridge Flow Line) cruise to the northern Mid Atlantic Ridge~\citep{Shinevar2018} (Fig.~\ref{fig:scarf}A). Calculated spreding rates from the collected magnetic data (Fig.~\ref{fig:scarf}B) along a $\sim$700 km-long transect across the ridge axis show twice greater half spreading rates compared to the near-axis region. Half spreading rate would remain constant if seafloor grew uniformly. In addition, half spreading rate is 10 mm/yr within 100 km to the west from the ridge axis but is 15 mm/yr over the same distance to the east of the axis. The spreading and plate growth at this ridge has been asymmetric. 
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.85\linewidth]{./figs/scarf.png}
-	\caption{\textbf{A.} Location of SCARF cruise. Black line is cruise trackline. \textbf{B.} Calculated half spreading rate from measured magnetic data. From \citet{Shinevar2018}.}
+	\caption{\textbf{A.} Location of SCARF cruise. Black line is the cruise trackline. \textbf{B.} Calculated half spreading rate from measured magnetic data. From \citet{Shinevar2018}.}
 	\label{fig:scarf}
 \end{figure}
 
@@ -174,12 +175,11 @@ Continental rifts, another type of divergent plate boundary, has recently been s
 	\label{fig:brune}
 \end{figure}
 
-Prompted by the non-uniform plate growth at mid-ocean ridges and potential interactions between the far-field forces and mid-ocean ridge processes, I investigate how interactions between plate driving forces and internal forces would affect spreading rates of oceanic plates. I develop numerical models for mid-ocean ridge and oceanic lithosphere in which such force interactions can occur. My models will be built upon existing mid-ocean ridge modeling techniques for simulating diking and faulting at spreading centers because magmatism and faulting play a vital role in determining characteristics of oceanic lithosphere that can be in principle compared to observations.
-% Specfically, I replace conventional kinematic boundary conditions with traction boundary conditions as in~\citep{Brune2016}. I also include magmatic intrusion and faulting at a spreading center in models  
+Prompted by the non-uniform plate growth at mid-ocean ridges and potential interactions between the far-field forces and mid-ocean ridge processes, I develop new numerical models that can be useful for investigating how interactions between plate driving forces and internal forces would affect spreading rates of oceanic plates. My models will be built upon existing mid-ocean ridge modeling techniques for simulating diking and faulting at spreading centers because magmatism and faulting play a vital role in determining characteristics of oceanic lithosphere that can be in principle compared to observations. My new contribution is to replace conventional kinematic boundary conditions with traction boundary conditions in a popular open-source code for geodynamic modeling and investigate the effects of the traction boundary conditions on lithospheric growth. In the next sections, I describe the modeling method used in my study, show and discuss model results and challenges involved in interpreting them. Main findings are summarized at the end.
 
 \chapter{Modeling Method}
 
-\section{Background: Diking, faulting and seafloor morphology}
+\section{Background: Magmatism, faulting and seafloor morphology}
 Magmatism at the spreading center of mid-ocean ridges plays an essential role in determining faulting styles that in turn control the axial and seafloor morphology. At fast-spreading ridges, copious magma rises and forms axial high (Figure \ref{fig:ridgebathymetry}A). With abundant magma, diking can occur frequently accommodating a significant portion of plate separation. For this reason, faults forming near axial highs have only small (i.e., 100s m) offsets (Figure \ref{fig:ridgebathymetry}A). Density variations are significant across fast-spreading ridges since the axial lithosphere is very thin, hot, and underlain by partially molten crust. Axial highs might originate from fluid magma rising to the level of local isostatic equilibrium at the plate spreading axis and then subsiding as it cools down. In contrast, faults forming at slow-spreading centers show greater offset, and axial valleys form at the spreading center (Figure \ref{fig:ridgebathymetry}B). Less abundant magma compared to fast-spreading ridges means less frequent diking and tectonic stretching accommodates a significant portion of plate separation. Faults at slow-spreading ridges develop offset up to 1-2 km. Abyssal hills produced at slow-spreading ridges are composed of faults dipping towards the axis while about half of the faults near fast-spreading centers dip toward the axis and the other half dip away from ridge axis.
 
 \begin{figure}[!htb]
@@ -199,17 +199,19 @@ This approach allowed the lateral position of a modeled dike to explain the cont
     \label{fig:mcartoon}
 \end{figure}
 
-\citet{Buck2005} introduced the ratio of dike opening rate to total plate spreading rate as a parameter for numerical mid-ocean ridge models. This ratio is denoted as M and when given as a parameter for a model, it determines the rate of diking-accommodated plate separation as M times total spreading rate. When M = 0, dikes account for none of the plate spreading (Figure \ref{fig:mcartoon}A); and dikes accommodate all the plate separations when M = 1 (Figure \ref{fig:mcartoon}B). M less than one corresponds to the case where magma supply is insufficient for filling the entire opening created by plate separation and tectonic stretching of the lithosphere should occurs. For M = 1, axial lithospheric separation is all taken up by dike widening and no faults or axial valleys develop.  For 0.5 $<$ M $<$ 1, faults develop and slip at a horizontal rate of  $v_d-v_p$, which is 2$v_p$ (M $-$ 0.5) (Figure \ref{fig:mcartoon}C). 
+\section{M factor parametrizing plate separation by diking}
+\citet{Buck2005} introduced the ratio of dike opening rate to total plate spreading rate as a parameter for numerical mid-ocean ridge models. This ratio is denoted as M and when given as a parameter for a model, it determines the rate of diking-accommodated plate separation as M times total spreading rate. When M = 0, dikes account for none of the plate spreading (Fig.~\ref{fig:mcartoon}A); and dikes accommodate all the plate separations when M = 1 (Fig.~\ref{fig:mcartoon}B). M < 1 corresponds to the case where magma supply is insufficient for filling the entire opening created by plate separation and tectonic stretching of the lithosphere should occurs. For M = 1, axial lithospheric separation is all taken up by dike widening and no faults or axial valleys develop.  \annote[EC]{For 0.5 $<$ M $<$ 1, faults develop and slip at a horizontal rate of  $v_d-v_p$}{Is vd-vp really the fault\rq{}s slip rate? How is the rate determined for M < 0.5?}, where $v_{p}$ is the half spreading rate and $v_{d}$ is the dike opening rate defined as $2Mv_{p}$. Thus, $v_{d}-v_{p}$ is equal to $2 v_p (M - 0.5)$ (Fig.~\ref{fig:mcartoon}C). 
 %\annote[EC]{2$v_p$ (M $-$ 0.5)}{Explain how this expression is derived.}
-\begin{align}
-v_d - v_p &= 2 M v_p - v_p 
-&( M = \frac{v_d}{2 v_p}) \\
-                &= 2v_p (M - 0.5)
-\end{align}
+%\begin{align}
+%v_d - v_p &= 2 M v_p - v_p 
+%&( M = \frac{v_d}{2 v_p}) \\
+%                &= 2v_p (M - 0.5)
+%\end{align}
 %(Figure \ref{fig:mcartoon}C). 
-Since the opening by diking is faster than the rate that the fault offset increases, the fault itself is pushed off axis with time. When pushed far away from the axis, the fault locks because the lithosphere around the fault becomes thicker and stronger. As a result, a new fault forms at the spreading center, continuing to accommodate a part of plate separation. 
+The opening by diking is faster than the horizontal component of the fault slip rate when M $>$ 0.5. that the fault offset increases, the fault itself is pushed off axis with time. When pushed far away from the axis, the fault locks because the lithosphere around the fault becomes thicker and stronger. As a result, a new fault forms at the spreading center, continuing to accommodate a part of plate separation. 
 
-Numerical models with M implemented could successfully reproduce the main characteristics of intermediate- and slow-spreading ridges~\citep{Buck2005}. In the case of M = 0.95, the model produces a symmetric pattern of small-offset faults, producing a bathymetric profile similar to abyssal hills around the Southeast Indian Ridge (Figure \ref{fig:mfactor}A). Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal faulting that occurs alternatingly on both sides of the ridge axis. Figure \ref{fig:abyssalhill}A shows the location of Southwest Indian Ridge, another place where abyssal hills are observed and explained as a product of alternating small-offset normal faults. Figure \ref{fig:abyssalhill}B, the bathymetric cross section, displays a symmetric pattern of small-offset faults. Zoom a and zoom b point out the feature of abyssal hills more in detail, the offsets of the faults are much smaller than that of detachment fault.
+\subsection{M factor and seafloor morphologies}
+Abyssal hills form at mid-ocean ridge spreading centers by magmatism and normal faulting that occurs alternatingly on both sides of the ridge axis. Figure \ref{fig:abyssalhill}A shows the location of Southwest Indian Ridge, another place where abyssal hills are observed and explained as a product of alternating small-offset normal faults. Figure \ref{fig:abyssalhill}B, the bathymetric cross section, displays a symmetric pattern of small-offset faults. Zoom a and zoom b point out the feature of abyssal hills more in detail, the offsets of the faults are much smaller than that of detachment fault.
 %
 \begin{figure}[!htb]
 	\centering
@@ -227,6 +229,9 @@ Oceanic core complexes(OCCs) have been recognized along slow- and ultraslow- spr
 	\label{fig:occ}
 \end{figure}
 %
+
+Numerical models with M implemented could successfully reproduce the main characteristics of intermediate- and slow-spreading ridges~\citep{Buck2005}.
+In the case of M = 0.95, the model produces a symmetric pattern of small-offset faults, producing a bathymetric profile similar to abyssal hills around the Southeast Indian Ridge (Figure \ref{fig:mfactor}A). 
 The OCC fomration is well reproduced in \citet{Buck2005}'s model for M = 0.5. In their model, two large offset faults on one side, and a series of small faults on the other side. Lithospheric stretching creates conjugate normal faults at the spreading center initially. Only one branch survives on one side of the ridge, eventually evolving into a detachment fault, while short-lived new faults semi-regularly form on the opposite side. The resultant bathymetric profile resembles that of the slow-spreading Mid-Atlantic Ridge (Figure \ref{fig:mfactor}B).
 %
 \begin{figure}[!htb]
@@ -258,21 +263,21 @@ The OCC fomration is well reproduced in \citet{Buck2005}'s model for M = 0.5. In
 %and constitutive equation for a non-Newtonian fluid
 %
 
-\section{Numerical methods}
-FLAC (Fast Lagrangian Analysis of Continua) method solves the equations describing conservation of momentum,
+\section{Numerical method for governing equations}
+FLAC (Fast Lagrangian Analysis of Continua) method~\citep{Cundall1982, Poliakov1993, Lavier2002} solves the equation of linear momentum conservation:
 \begin{align}
 \rho \frac{D \mathbf{v}}{Dt} = \nabla \cdot \boldsymbol{\sigma} + \rho \mathbf{b},
 \end{align}
-where $\rho$ is density, $\mathbf{v}$ is velocity, $\boldsymbol{\sigma}$ is stress tensor, and $\mathbf{b}$ is body force%%
+where $D/Dt$ is the material time derivative, $\rho$ is density, $\mathbf{v}$ is velocity, $\boldsymbol{\sigma}$ is the Cauchy stress tensor, and $\mathbf{b}$ is body force. %%
 %energy balance equation
-
-\noindent and energy, 
+FLAC also solves the energy balance equation,
 \begin{align}
-\rho C_{p} \frac{\partial T}{\partial t} = k \nabla^2 T
+\rho c_{p} \frac{D T}{D t} = \nabla \cdot ( k \nabla T)
 \end{align}
-where $C_{p}$ is heat capacity at constant pressure, $T$ is temperature, and $k$ is a coefficient of thermal conductivity
-
-\noindent for a visco-elastic-plastic continuum in 2-D Cartesian geometry \citep{Cundall1982, Poliakov1993, Lavier2002}. The acceleration term in the momentum conservation equation is  integrated explicitly in time for updated velocities, which in tern are used for updating strain rates, strain and stress. The energy balance equation is similarly integrated to update temperature. The updated variables are used to determine the acceleration as the sum of the internal and external forces for the next time step. The FLAC code that I used for this study is available at \url{https://github.com/heec12/Mscthesis}. The input parameter files necessary for reproducing the results presented in this study are available in the same repository.
+where $c_{p}$ is specific heat capacity at constant pressure, $T$ is temperature, and $k$ is a coefficient of thermal conductivity. 
+%
+%\noindent for a visco-elastic-plastic continuum in 2-D Cartesian geometry. 
+These equations are converted to the respective weak forms and finite element method for linear triangular elements is employed to compute approximate solutions. The acceleration term in the momentum conservation equation is integrated explicitly in time for updated velocities, which in tern are used for updating strain rates, strain and stress. The updated variables are used to determine the acceleration as the sum of the internal and external forces for the next time step. The energy balance equation is similarly integrated to update temperature. The FLAC code that I used for this study is available at \url{https://github.com/heec12/Mscthesis}. The input parameter files necessary for reproducing the results presented in this study are available in the same repository.
 
 Materials in my mid-ocean ridge models are assumed to be elasto-visco-plastic. In this rheology, the brittle behavior is modeled by strain-weaking elasto-plasticity and the ductile behavior is modeled by Maxwell visco-elasticity. 
 For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted, in which strain rates are assumed to be the sum of elastic and viscous strain rates.
@@ -281,8 +286,8 @@ For visco-elastic deformation, the linear Maxwell viscoelastic model is adopted,
                         &= \frac{ \dot{\sigma}}{k} + \frac{\sigma}{\eta}
 \end{align}
 where $\dot{\epsilon}$ is strain rate, $\sigma$ is stress, $k$ is constant, and $\eta$ is viscosity.
-
 %
+
 Viscosity is determined by the dry diabase power law rheology~\citep{Kirby1987, Chen1990}.
 \begin{align} \label{Visc}
  \eta = \frac{1}{4} \bigg( \frac{4}{3A} \bigg)^{1/n} \dot{\epsilon}^{(1/n)-1} \exp\bigg(\frac{Q}{nRT}\bigg)
@@ -320,12 +325,12 @@ Strain weaekning is realized by decreasing cohesion with the total accumulated p
 %
 
 \section{Model Setup}
-The model domain is rectangular with a ridge axis at the center. All the models have 60 km wide and 20 km deep of domain sizes with the grid of 0.5 $\times$ 0.5 km. At the top boundary, I apply seawater hydrostatic pressure while Winkler foundation is assumed for the bottom side (Figure \ref{fig:modelsetup}).
+The model domain is rectangular with a ridge axis at the center  (Fig.~\ref{fig:modelsetup}). All the models have 60 km wide and 20 km deep of domain sizes with a grid of 0.5 $\times$ 0.5 km, each rectangular element of which is subdivided into triangles. At the top boundary, I apply \annote[EC]{a hydrostatic pressure of XX MPa, corresponding to XX km-thick seawater layer}{Fill out the missing info.}. The bottom boundary has \annote[EC]{the Winkler foundation}{Explain what this is}.
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figs/modelsetup.png}
-	\caption{Model setup used for numerical simulations of mid-ocean ridge system. For both velocity- and force-driven model, same initial and thermal boundary conditions are applied.}
+	\caption{Model setup used for numerical simulations of mid-ocean ridge system. For both velocity- and force-driven model, same initial and thermal boundary conditions are applied. \note[EC]{Show and state the directions of your x and y axis and the origin at the top center of the domain. Without this info, later velocity plots and distance axis wouldn\rq{}t make sense immediately.}}
 	\label{fig:modelsetup}
 \end{figure}
 %
@@ -386,9 +391,9 @@ To avoid such an undesirable boundary failure, I search for an appropriate rate 
 
 This group of models have prescribed $x$ component boundary force, ($\boldsymbol{F}_{bdy}$)$_x$ on the boundareis of lithosphere. The net force resulting at the boundary nodes, $(\boldsymbol{F}_{res})$, is determined as the sum of $\boldsymbol{F}_{bdy}$ and time-evolving $\boldsymbol{F}_{int}$.
 
-I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ ($\overline{(\boldsymbol{F}_{res})_x}$) from a Case II model with the same value of M. A Case II model with a desired value of M writes $(\boldsymbol{F}_{int})_x$ values on all the side boundary nodes to a file. Those recorded values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over a time period from the mature stage of the first fault to the incipient stage of the next new fault on the opposite side. 
-When M = 0.5, I simply averaged after the master detachment fault reach the mature stage until the model ends, since no new fault break afterwards.
-In the Case II model with M = 0.8, the alternating faulting occurs (Fig.~\ref{fig:faultstage}). I divde the evolution of alternating faulting into three stages: Incipient, mature and terminal. At the incipent stage (Figure \ref{fig:faultstage}A), a fault forms on one side of the ridge axis. The fault heave increases and fault dip decreases as fault grows during the mature stage (Figure \ref{fig:faultstage}B). The terminal stage is characterized by the replacement of the locked fault by a new near-axis fault on the opposite side of ridge axis. In this case, the force-averaging period is the time between the snapshot B and C.
+I assign to $(\boldsymbol{F}_{bdy})_x$ the value of time-averaged $(\boldsymbol{F}_{int})_x$ %($\overline{(\boldsymbol{F}_{res})_x}$) 
+from a Case II model with the same value of M. A Case II model with a desired value of M writes $(\boldsymbol{F}_{int})_x$ values on all the side boundary nodes to a file. Those recorded values of $(\boldsymbol{F}_{int})_{x}$ are then averaged over a time period. When M = 0.5, I simply average $(\boldsymbol{F}_{int})_{x}$ values after the master detachment fault forms until the model ends since no new fault breaks afterwards.
+When M is 0.8, the alternating faulting occurs (Fig.~\ref{fig:faultstage}). I divide the evolution of alternating faulting into three stages: Incipient, mature and terminal. At the incipent stage (Figure \ref{fig:faultstage}A), a fault forms on one side of the ridge axis. The fault heave increases and fault dip decreases as fault grows during the mature stage (Figure \ref{fig:faultstage}B). The terminal stage is characterized by the replacement of the locked fault by a new near-axis fault on the opposite side of ridge axis. The force-averaging period for a M=0.8 model is the time between the snapshot B and C.\note[EC]{Where is the time info? How long does it take to go from B to C?}  from the mature stage of the first fault to the incipient stage of the next new fault on the opposite side. 
 %
 \begin{figure}[!htb]
 	\centering
@@ -397,30 +402,34 @@ In the Case II model with M = 0.8, the alternating faulting occurs (Fig.~\ref{fi
 	\label{fig:faultstage}
 \end{figure}
 
-I let $(\boldsymbol{F_{res}})_x$ be computed only on the nodes in the brittle state, in which I assume temperature is lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming that the ductile mantle is only passively pulled up beneath the spreading center and dragged along by the brittle lithosphere, I set ($\boldsymbol{F}_{res}$)$_x$ of the ductile parts of the side boundaries to be zero. This treatment is equivalent to assumging that the boundary force is perfectly balanced with the viscous resistance on the ductile portions of the boundaries. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
+$(\boldsymbol{F_{res}})_x$ is applied only to the nodes in the brittle state, in which I assume temperature is lower than 600 $^\circ$C \citep[e.g.,][]{Violay2012}. Assuming that the ductile mantle is only passively pulled up beneath the spreading center and dragged along by the brittle lithosphere, I set ($\boldsymbol{F}_{res}$)$_x$ of the ductile parts of the side boundaries to be zero. This treatment is equivalent to assumging that the boundary force is perfectly balanced with the viscous resistance on the ductile portions of the boundaries. %Most of tectonic activities have been shown to be a consequences of plate motions. Therefore, I apply the force only acting on brittle plates and let $(\boldsymbol{F_{bdy}})_x$ as a zero.
 
 \chapter{Results}
 
 \section{Kinematic models}
 
-The kinematic models reproduce the faulting modes for each M value reported in the previous studies. In the M = 0.5 model, a normal fault forms by 0.1 My and remains active over the entire duration of the model, 1 My, producing an oceanic core complex (Figure \ref{fig:kfault}A). When M is 0.8, a normal fault form by 0.1 My but locks over the next 0.1 My eventually being replaced by another fault forming on the opposite side. Going through the same sequence of events with the first fault, the second fault is replaced by the third one by 0.4 My. The alternating faulting continues until the model ends after 1 My (Figure \ref{fig:kfault}B).
+The kinematic models reproduce the faulting modes reported in the previous studies. When M is 0.5, a normal fault forms by 0.1 My and remains active over the entire duration of the model, 1 My, producing an oceanic core complex (Figure \ref{fig:kfault}A). When M is 0.8, a normal fault form by 0.1 My but locks over the next 0.1 My eventually being replaced by another fault forming on the opposite side. Going through the same sequence of events with the first fault, the second fault is replaced by the third one by 0.4 My. The alternating faulting continues until the model ends after 1 My (Figure \ref{fig:kfault}B).
 %
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.9\linewidth]{./figs/kfault.png}
-	\caption{ \textbf{A.} Snapshots of plastic strain distribution in the kinematic model with M = 0.5 over 1 Myr at 0.2 Myr interval. Bands of localized plastic strain represent faults. \textbf{B.} Same as \textbf{A} but for M = 0.8.}
+	\includegraphics[width=0.7\linewidth]{./figs/kfault.png}
+	\caption{ \textbf{A.} Snapshots of plastic strain distribution in the kinematic model with M = 0.5 over 1 Myr at 0.2 Myr interval. Bands of localized plastic strain represent faults. \textbf{B.} Same as \textbf{A} but for M = 0.8. \add[EC]{Add spatial scales}}
 	\label{fig:kfault}
 \end{figure}
 
+Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$) is defined as averaged $x$ component of the nodal velocities on the top surface nodes $\sim$15 km away from the ridge axis. The central 30 km-wide area is excluded from averaging not to consider faulting effects. 
+%To avoid aliasing, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. 
+FLAC does remeshing\add[EC]{[REFS]} when deformations being simulated distort elements too much. Interpolation of variables of the distorted mesh onto a new one results in out-of-balance forces at the nodes and produces artificial accelerations. The raw value of $\overline{\boldsymbol{v}}_{x}$ includes the noise produced due to these artificial accelerations. To filter them out and see $\overline{\boldsymbol{v}}_{x}$ more clearly, I applied a second order Butterworth low-pass filter (Figure \ref{fig:filter}) to reconstruct mean speed time series using only frequencies lower than 20 Hz. \add[EC]{Double-check the unit. Is it really 20 Hz? That\rq{}s a very high frequency for plate tectonic scales.}
+%
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figs/filter.png}
 	\caption{Magnitude response of designed second order Butterworth low-pass filter. In this filter, the frequencies under 20 Hz, surrounded with red lines, are in the pass band and the higher frequencies are in the stop band.}
 	\label{fig:filter}
 \end{figure}
-Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$) is defined as $x$ component of the nodal velocities averaged over the top surface nodes $\sim$15 km away from the ridge axis and, as expected, remains constant in the kinematic models. The central 30 km-wide area is excluded from averaging not to consider faulting effects. To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. When the remeshing occurs, the interpolation process results in out-of-balance forces at the nodes and produces artificial accelerations. The raw value of $\overline{\boldsymbol{v}}_{x}$ includes the noise produced due to these artificial accelerations .To see $\overline{\boldsymbol{v}}_{x}$ more clearly, I considered only frequencies under 20 Hz by using second order Butterworth low-pass filter (Figure \ref{fig:filter}).
 
-When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:kmhv}A). Also, at M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:kmhv}B). Filtered $\overline{\boldsymbol{v}}_{x}$ is plotted as a red line.
+Mean horizontal velocity of each plate ($\overline{\boldsymbol{v}}_{x}$) in the kinematic models is constant as expected. 
+When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on left-side plate and 2.55 cm/yr on right-side plate (Figure \ref{fig:kmhv}A). Also, at M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.55 cm/yr on both sides of plate until the model ends (Figure \ref{fig:kmhv}B). %Filtered $\overline{\boldsymbol{v}}_{x}$ is plotted as a red line.
 %
 \begin{figure}[!htb]
 	\centering
@@ -432,10 +441,10 @@ When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.50 cm/yr on l
 
 \section{$(\boldsymbol{F_{res}})_x=0$ models}
 
-This condition represents the hypothetical state where $\boldsymbol{F}_{bdy}$ is adjusted such that it perfectly counteracts $\boldsymbol{F}_{int}$ making $\boldsymbol{F}_{res}$ equal to zero all the time. Simplest condition in force-driven models. Since the net residual force is zero on the side boundaries, the models under this condition show constant plate velocity as expected for a motion with zero acceleration.
+This condition represents the hypothetical state where $\boldsymbol{F}_{bdy}$ is adjusted such that it perfectly counteracts $\boldsymbol{F}_{int}$ making $\boldsymbol{F}_{res}$ equal to zero all the time. %Simplest condition in force-driven models. 
+Since the net residual force is zero on the side boundaries, the models under this condition show constant plate velocity as expected for a motion with zero acceleration.
 
-With this force boundary condition and fixed M value, models mimic the appearance of the constant velocity boundary condition models. % (Figure \ref{fig:force0}). 
-Models produce one master detachment fault when M = 0.5 (Figure \ref{fig:f0fault}A) and series of small offset normal faults when M = 0.8(Figure \ref{fig:f0fault}B).
+Faulting styles in the models with this force boundary condition show the same correspondence with M values as in the previous studies\add[EC]{[e.g., REFS like Buck et al., Nature 2005; Tucholke et al., Geology, 2008]}. One master detachment fault creates an OCC when M = 0.5 (Figure \ref{fig:f0fault}A) and a series of small offset normal faults, forming alternatingly on both sides of the ridge axis, produce abyssal hills when M = 0.8(Figure \ref{fig:f0fault}B).
 %
 %\begin{figure}[!htb]
 %	\centering
@@ -450,23 +459,23 @@ Models produce one master detachment fault when M = 0.5 (Figure \ref{fig:f0fault
 	\label{fig:f0fault}
 \end{figure}
 
-The models with $(\boldsymbol{F_{res}})_x=0$ condition show similar behavior of $\overline{\boldsymbol{v}_x}$ comparing to kinematic models. At M = 0.5, $\overline{\boldsymbol{v}_x}$ remain constant at 2.50 cm/yr on left side. Right-side $\overline{\boldsymbol{v}}_{x}$ slightly increase from 2.50 cm/yr to 2.70 cm/yr. Filtered velocity could not catch this difference (Figure \ref{fig:f0mhv}A). 
-When M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.70 cm/yr on left side and 2.80 cm/yr on right side of plate until the model ends (Figure \ref{fig:kmhv}B).
+Mean plate velocities are overall constant in time but show minor temporal variability. $\overline{\boldsymbol{v}_x}$ is supposed to be constant because net forces on the side boundary nodes are zero and therefore the time rate of change of velocity should be zero on those nodes. However, while variability is not large compared to 2.5 cm/yr, the intended magnitude of $\overline{\boldsymbol{v}_x}$, $\overline{\boldsymbol{v}_x}$ is not exacly 2.5 cm/yr and changes over time slightly. \note[EC]{Leave only the description of the filtered velocity.} For M = 0.5, $\overline{\boldsymbol{v}_x}$ of the plate moving to the left is $-$2.50 cm/yr (Figure \ref{fig:f0mhv}A). $\overline{\boldsymbol{v}}_{x}$ of the plate moving to the right stays near this magnitude but seems to slightly increase from 2.50 cm/yr to 2.70 cm/yr by the end of the simulation. Filtered velocity do not exhibit this variability. When M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remain constant at 2.70 cm/yr on the left-moving plate and 2.80 cm/yr on the right plate until the model ends (Figure \ref{fig:kmhv}B).
 %From 400 to 520 Kyrs and 780 to 900 Kyrs, $\overline{\boldsymbol{v}_x}$ of both left-and right-side reduce (Figure \ref{fig:f0m08}).
 %$\overline{\boldsymbol{v}_x}$ has two phases (Figure \ref{fig:f0mhv}B). From 200 to 400 Kyrs, the right-side plate is in a high-velocity phase and the left-side plate is in a low-velocity phase. From 400 to 600 Kyrs, now the right-side plate is in a low-velocity phase and the left-side plate is in a high-velocity phase. This pattern repeats until the model ends.
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.98\linewidth]{./figs/f0mhv.png}
-	\caption{\textbf{A.} Mean horizontal plate velocity obtained from M=0.5 $(\boldsymbol{F_{res}})_x=0$ model results. Red lines are filtered velocity. \textbf{B.} Same as \textbf{A} but for M = 0.8. }
+	\caption{\textbf{A.} Mean horizontal plate velocity obtained from M=0.5 $(\boldsymbol{F_{res}})_x=0$ model results. Red lines are low-pass filtered velocity. \textbf{B.} Same as \textbf{A} but for M = 0.8. }
 	\label{fig:f0mhv}
 \end{figure}
 
 \section{Constant $(\boldsymbol{F_{bdy}})_x$ models}
 
-This condition characterizes both $(\boldsymbol{F_{int}})_x$ and $(\boldsymbol{F_{res}})_x$ are dynamically changed by setting $(\boldsymbol{F_{bdy}})_x$ as a constant value. Since the net residual force keeps changing, plate velocity under this condition is continuously changing over time.
+A constant $(\boldsymbol{F_{bdy}})_x$ implies that $(\boldsymbol{F_{res}})_x$ changes over time as $(\boldsymbol{F_{int}})_x$ evolves. Since the net residual force keeps changing, plate velocity under this condition is also expected to change in time.
 
-Modeled fault behaviors from constant $(\boldsymbol{F_{bdy}})_x$ models are similar to that of kinematic models and  $(\boldsymbol{F_{res}})_x = 0$ models. For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:fbfault}A). For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:fbfault}B).
+Faulting styles are again consistent with the known correspondence to a given value of M. %Modeled fault behaviors from constant $(\boldsymbol{F_{bdy}})_x$ models are similar to that of kinematic models and  $(\boldsymbol{F_{res}})_x = 0$ models. 
+For M = 0.5, a master detachment fault forms on one side (Figure \ref{fig:fbfault}A). For M = 0.8, the model produces a series of small-offset faults on both sides from the ridge axis (Figure \ref{fig:fbfault}B).
 %
 \begin{figure}[!htb]
 	\centering
@@ -475,8 +484,8 @@ Modeled fault behaviors from constant $(\boldsymbol{F_{bdy}})_x$ models are simi
 	\label{fig:fbfault}
 \end{figure}
 
-Comparing to above models, constant $(\boldsymbol{F_{bdy}})_x$ models show significant $\overline{\boldsymbol{v}_x}$ changes over time, although the amplitudes of abnormal peaks are great. 
-When M=0.5, the left-side plate $\overline{\boldsymbol{v}_x}$ keep changing at near 3 cm/yr. The right-side plate velocity decrease from 3 cm/yr to 2 cm/yr (Figure \ref{fig:fbmhv}A).
+Models in this group show significant temporal variations in $\overline{\boldsymbol{v}_x}$.% changes over time, although the amplitudes of abnormal peaks are great. 
+When M=0.5, the left-side plate $\overline{\boldsymbol{v}_x}$ keep changing at near 3 cm/yr. \note[EC]{Describe only the filtered velocity.} The right-side plate velocity decrease from 3 cm/yr to 2 cm/yr (Figure \ref{fig:fbmhv}A).
 When M=0.8, both sides of plate velocities change more vigorously than other models (Figure \ref{fig:fbmhv}B). Until 250 Kyrs, the left-side plate $\overline{\boldsymbol{v}_x}$ increase up to 3 cm/yr, while the right-side plate velocity decrease from 3 cm/yr to 2 cm/yr. From 250 to 420 Kyrs, now the left-side plate moves slowly and the right-side plate moves rapidly. From 420 to 600 Kyrs, again the left plate velocity increase and the right plate velocity decrease. After 750 Kyrs, the left-side plate moves rapidly while the right-side plate moves slowly.
 %Unlike velocity-driven model, force-driven model shows significant velocity changes over time. The detachment fault forms at 50Kyrs on left side of the spreading axis. After *yrs, the left plate moves slowly.
 %
@@ -489,7 +498,7 @@ When M=0.8, both sides of plate velocities change more vigorously than other mod
 
 \chapter{Discussion}
 
-Horizontal mean plate velocities in models includes the fault development at a ridge. Not to consider this faulting effects, I used $\overline{\boldsymbol{v}}_{x}$, $x$ component of the nodal velocities averaged over the nodes on each side of $\sim$15 km from the ridge axis. As a result, kinematic models show constant value of $\overline{\boldsymbol{v}}_{x}$ regardless of M factors.
+%Mean horizontal velocity of plates in the models includes the fault development at a ridge. Not to consider this faulting effects, I used $\overline{\boldsymbol{v}}_{x}$, $x$ component of the nodal velocities averaged over the nodes on each side of $\sim$15 km from the ridge axis. As a result, kinematic models show constant value of $\overline{\boldsymbol{v}}_{x}$ regardless of M factors.
 
 %In kinematic models, normal faults migrate away from the axis at a rate $2v_p($M$-0.5)$, where $v_p$ is a constant plate-driving velocity (Figure \ref{fig:hangingwall}) \citep{Buck2005}. The plate containing an active fault is slower than the other plate. When M = 0.5, A master detachment fault forms on one side and do not move and hence the plate velocities remain constant value, with one plate moves faster than another. When M = 0.8, faults initiate near the ridge axis and are rafted off-axis. The new fault is antithetic and forms on the opposite side of the ridge axis from the original fault. In this reason, the models have repeated two phase plate velocity corresponding to the alternating faulting mode. Not to consider this faulting effects, I used $\overline{\boldsymbol{v}}_{x}$, $x$ component of the nodal velocities averaged over the nodes on each side of $\sim$15 km from the ridge axis and it remains constant.
 %
@@ -500,19 +509,22 @@ Horizontal mean plate velocities in models includes the fault development at a r
 %	\label{fig:hangingwall}
 %\end{figure}
 
-The models under $(\boldsymbol{F_{res}})_x=0$ condition are expected to show constant plate velocity as a motion with zero acceleration since the net residual force is zero on the side boundaries. However, $\overline{\boldsymbol{v}}_{x}$ slightly changes over time. When M = 0.5, the right-side $\overline{\boldsymbol{v}}_{x}$ slightly increases. This change in $\overline{\boldsymbol{v}}_{x}$ may come from the fault. The left side of plate does not include the fault and its $\overline{\boldsymbol{v}}_{x}$ remains the constant value. When M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remains at 2.70 cm/yr and 2.80 cm/yr each for left and right plates.
-%the models show repeated two phase $\overline{\boldsymbol{v}}_{x}$ on both side of plates, and it coincides with the alternating faulting. 
-Even after averaging over the nodes on each side of $\sim$15 km from the ridge axis, $(\boldsymbol{F_{res}})_x=0$ models show small changes in $\overline{\boldsymbol{v}}_x$ corresponding to the faulting. Comparing to the kinematic models, the plate speed of the models with $(\boldsymbol{F_{res}})_x=0$ condition more strongly affected by faulting style.
+Changes of mean plate velocity over time in the Case II models appear connected to the evolution of the detachment fault.
+When M = 0.5, the mean velocity of the plate moving to the right slightly increases \add[EC]{by XX cm/yr}. Connection of this change to the evolution of the detachment fault is suggested by the observation that the plate on the left does not develop a fault and its $\overline{\boldsymbol{v}}_{x}$ remains constant\add[EC]{(Fig. XX)}. When M = 0.8, $\overline{\boldsymbol{v}}_{x}$ remains at 2.7 and 2.8 cm/yr for the left and right plates, respectively. \annote[EC]{the models show repeated two phase $\overline{\boldsymbol{v}}_{x}$ on both side of plates, and it coincides with the alternating faulting. }{This sentence used to be commented out but if true, restore it. Do you think the new thesis sentence of this paragraph can be supported by both M=0.5 and M=0.8 models? If not, what should be the summary statement of the variable mean plate velocity?}
+%
+%Even after averaging over the nodes on each side of $\sim$15 km from the ridge axis, $(\boldsymbol{F_{res}})_x=0$ models show small changes in $\overline{\boldsymbol{v}}_x$ corresponding to the faulting. Comparing to the kinematic models, the plate speed of the models with $(\boldsymbol{F_{res}})_x=0$ condition more strongly affected by faulting style.
 
-Changing $\overline{\boldsymbol{v}}_{x}$ also appears in the models controlled by force balance between $(\boldsymbol{F_{int}})_x$ and constant $(\boldsymbol{F_{bdy}})_x$. Under the constant $(\boldsymbol{F_{bdy}})_x$ condition, the range of changing $\overline{\boldsymbol{v}}_{x}$ is greater than previous models. When M = 0.5, initial value of $(\boldsymbol{F_{bdy}})_x$ starts at $\sim$ 2.5 cm/yr and keeps changed until the model ends, although it is hard to tell the clear difference between mean horizontal velocity and remeshing noise. When M = 0.8, $(\boldsymbol{F_{bdy}})_x$ keep changing between 2 to 3.5 cm/yr until the model ends, yet the remeshing noise make hard to read exact mean horizontal plate velocity value.
+Mean plate velocities show the greatest temporal variations in the Case III models where balance between $(\boldsymbol{F_{int}})_x$ and applied $(\boldsymbol{F_{bdy}})_x$ drives the plate motions. The magnitude of $\overline{\boldsymbol{v}}_{x}$ variations is greater in this group of models than in the Case I and II models. When M = 0.5, $\overline{\boldsymbol{v}}_{x}$ has an initial magnitude of $\sim$2.5 cm/yr but keeps changing until the model ends although perturbations from remeshing obscures the . When M = 0.8, $\overline{\boldsymbol{v}}_{x}$ semi-periodically changes between 2 to 3.5 cm/yr until the model ends. However, noises from remeshing is strong in this model, too. 
 
-Overall, $\overline{\boldsymbol{v}}_{x}$ apparently change in force-driven models, while kinematic models only show constant values. With both M = 0.5 and 0.8, $\overline{\boldsymbol{v}}_{x}$ change more than 1 cm/yr over 1 Myr. However, it is hard to conclude that $\overline{\boldsymbol{v}}_{x}$ are in meaning range of plate velocity change
+%Overall, $\overline{\boldsymbol{v}}_{x}$ apparently change in force-driven models, while kinematic models only show constant values. With both M = 0.5 and 0.8, $\overline{\boldsymbol{v}}_{x}$ change more than 1 cm/yr over 1 Myr. However, it is hard to conclude that $\overline{\boldsymbol{v}}_{x}$ are in meaning range of plate velocity change
 %clearly come from force boundary conditions
-, because remeshing effects could not be perfectly removed. The amount of changes in $\overline{\boldsymbol{v}}_{x}$ is in the range of changes of remeshing noise. The more the models are complex, the less the models are stable and hence generate more noise from remeshing.
+%, because remeshing effects could not be perfectly removed. The amount of changes in $\overline{\boldsymbol{v}}_{x}$ is in the range of changes of remeshing noise. The more the models are complex, the less the models are stable and hence generate more noise from remeshing.
 
-First of all, remeshing frequencies in force-driven models were manually adjusted to remove remeshing noise. The amplitude of the noise %produced from remeshing process 
-are greater when the remeshing occurs less often. I tried 1 Kyr$^{-1}$ to 10 Kyr$^{-1}$ as forced remeshing frequencies. Increasing remeshing frequency helped diminishing the noise. However, the models with frequent remeshing failed to produce expected faulting style.
-
+Two ways of reducing numerical noises due to remeshing have been tested: Remeshing frequency adjustment and time step size adjustment.
+Extracting mean plate velocities from numerical models is essential for investigating the fundamental question, whether the balance between plate-driving and resistant forces can explain time-variable plate growth. However, remeshing-induced noises are so strong that analysis on the model results suffers ambiguity as discussed above. As a potential solution, remeshing frequencies in force-driven models were manually adjusted to reduce remeshing noise. This treatment is based on the observation that amplitudes of remeshing noises %produced from remeshing process 
+are proportional to remeshing intervals. In other words, the less frequently remeshing occurs, the greater the noise amplitudes are \add[EC]{(e.g., see Fig. XXX)}. I tried 1 Kyr$^{-1}$ to 10 Kyr$^{-1}$ as forced remeshing frequencies. Increasing remeshing frequency helped diminishing the noise. However, models with frequent remeshing often failed to reproduce expected faulting style. Another treatment tested is to adjust time step size such that it is reduced immediately after the remeshing and increased linearly to its original value over the next 1000 time steps. This way, the remeshing effects are damped out while progressing only little in model time. In Case I shown in Figure \ref{fig:dtadj} as a red line, time step size ($\text{d}t$) is decreased to 10\% of the original value right after a remeshing event. In Case II (blue in Figure \ref{fig:dtadj}), $\text{d}t$ is decrease only to 80\% of the original value. In Case III, $\text{d}t$ is decreased to the original value\rq{}s 10\% but increased back over the next 2000 time steps. Compared to the original $\overline{\boldsymbol{v}}_{x}$ plot (Figure \ref{fig:remeshing}A), none of these $\text{d}t$ adjustments lead to significant reduction of noises (Figure \ref{fig:remeshing}B and C). %This results suggest that adjusting size of time step does not remarkably affect the remeshing noise. 
+The most effective treatment is to let the reduced $\text{d}t$ recover over the next 2000 time steps and exclude the first 1000 steps after each remeshing event from the mean plate velocity calculation. As shown in Figure \ref{fig:remeshing}D, this method shows the notable improvement in diminishing the remeshing-induced perturbations in mean plate velocities. However, a more thorough study is still needed because this treatment sometimes cause faults to form in near-boundary or off-axis regions in Case III models.
+%
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figs/dtadjust.png}
@@ -520,8 +532,6 @@ are greater when the remeshing occurs less often. I tried 1 Kyr$^{-1}$ to 10 Kyr
 	\label{fig:dtadj}
 \end{figure}
 %
-I also tried to decrease the time step immediately after the remeshing occurs and increase it linearly to its original value over next 1000 time steps in order to dampen the remeshing effects and hence remove the noise peaks. Case I shown in Figure \ref{fig:dtadj} as a red line is decreasing the time step to 10\% right after the remeshing events. Case II ( blue in Figure \ref{fig:dtadj} is same as case I but to 80\% of original time step. Case III is decreasing the time step to 10\% after remeshing and increasing it over next 2000 time steps. Case I and III are plotted in Figure \ref{fig:remeshing} as B and C.
-Comparing to the original $\overline{\boldsymbol{v}}_{x}$ plot (Figure \ref{fig:remeshing}A), none of above cases lead to significant progress in removing noise. This results suggest that adjusting size of time step does not remarkably affect the remeshing noise. 
 % to dampen the remeshing effects will be needed to explore how the plate velocity change in the models. 
 \begin{figure}[!htb]
 	\centering
@@ -530,9 +540,7 @@ Comparing to the original $\overline{\boldsymbol{v}}_{x}$ plot (Figure \ref{fig:
 	\label{fig:remeshing}
 \end{figure}
 
-Not to consider remeshing effects at all, I stop printing $\overline{\boldsymbol{v}}_{x}$ over next 2000 time steps after remeshing events. As shown in Figure \ref{fig:remeshing}D, this method show the notable improvement in diminishing abnormal peaks from remeshing process. However, this filtering method is not applicable in constant $(\boldsymbol{F_{bdy}})_x$ models. It results in brittle failure in the models. Further studies are needed to develop.
-
-In addition, except for M, there is one or more factors involved in shaping faults near the mid-ocean ridge axis in force driven models. I observed that the increasing $(\boldsymbol{F_{res}})_x$ slope affects the faulting mode. 1 Pa/yr slope produces detachment fault, while 10 Pa/yr or greater slope produces alternating faulting mode. Steeper slope is required for alternating faults. Since the parameter M is based on kinematic model, another parameter to represent magmatism in force driven mid-ocean ridge model is required such as dynamic M.
+In force-driven models like those of Case II and III, faulting styles might be sensitive to previously unrecognized parameter or components in the model setup rather than governed solely by the M factor. For instance, I observed that the increasing $(\boldsymbol{F_{res}})_x$ slope affects the faulting mode. A slope of 1 Pa/yr leads to the detachment faulting, while slope of 10 Pa/yr or greater produce the alternating faulting mode for the same value of M. In general, a steeper slope for increasing $(\boldsymbol{F_{res}})_x$ favors the alternating faulting. Since the parameter M was invented based on conventional kinematic models, another parameter to represent magmatism in force driven mid-ocean ridge model might be necessary.
 
 %To overcome aliasing issue, I printed $\overline{\boldsymbol{v}}_{x}$ values at every time steps. In this way, I verified that the abnormal peaks came from the remeshing events and obtained putative plate velocity. Still, the remeshing noise is not perfectly removed and confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
 
@@ -541,11 +549,12 @@ In addition, except for M, there is one or more factors involved in shaping faul
 %Besides these velocity variations, another affecting factor is observed in force-driven models, especially when M = 0.8. From 400 to 520 Kyrs and 780 to 900 Kyrs in $(\boldsymbol{F_{res}})_x=0$ model with M = 0.8, Both sides of $\overline{\boldsymbol{v}_x}$ reduce. In this time period, only the nodal velocities near dike zone and at the boundary are about 2.5 cm/yr, while inner plate nodal velocities are equal or less than 1 cm/yr. It may due to the internal force ($\boldsymbol{F}_{int}$) of the model. Resistance force occurring against the stretching force lag the plate to be grown.
 %Besides these velocity variations, another fluctuation with greater amplitude and frequency is observed in constant $(\boldsymbol{F_{bdy}})_x$ models. Fault evolution is not sufficient to explain this long term and large magnitude variation. This fluctuation may come from the deep interior, as the feedback between deep mantle dynamics and surface plate motion. Hotter mantle conditioned models 
 
-\chapter{Conclusion}
+\chapter{Conclusions}
 
-To provide an explanation of observed non-uniform plate growth, I tested three different boundary conditions in mid-ocean ridge models. All three cases show similar faulting style depending on M value, but there are differences in plate velocities between three models. In kinematic models, $\overline{\boldsymbol{v}}_{x}$ always remain at constant value. Varying the magmatism at the spreading center does not affect the plate speed. Thus, the observations in mid-ocean ridge cannot be explained by existing kinematic models. When $(\boldsymbol{F_{res}})_x = 0$ is given as a boundary condition, the models mimic the behavior of kinematic models. Overall pattern of $\overline{\boldsymbol{v}}_{x}$ remains constant, but slight changes less then $\pm 0.2$ cm/yr were observed. It possibly come from the faulting, since this small difference in $\overline{\boldsymbol{v}}_{x}$ is only observed in the plate containing fault. Therefore, $\overline{\boldsymbol{v}_{x}}$ is more strongly affected by faulting style than kinematic models. Constant $(\boldsymbol{F_{bdy}})_x$ conditioned models show apparently changing $\overline{\boldsymbol{v}}_{x}$ which cannot be observed in kinematic models and $(\boldsymbol{F_{res}})_x = 0$ models. $\overline{\boldsymbol{v}}_{x}$ change more than 1 cm/yr over 1 Myr which is greater than one third of original plate velocity regardless of faulting styles. The model results support the hypothesis that force driven model is required to explain observed non-uniform plate growth.
-
-However, the amplitude of remeshing noise is greater than $\overline{\boldsymbol{v}}_{x}$ change. To overcome remeshing noise issue, I forcefully remeshed the models after every several kiloyears. I also tried to decrease the time step immediately after the remeshing events and increase it linearly to its original value over next 1000 time steps. However, none of approaches showed meaningful diminished remeshing noise and hence confidence in $\overline{\boldsymbol{v}}_{x}$ is not sure.
+A new class of force-driven mid-ocean ridge numerical models are explored. 
+%and oceanic lithosphereAs potentially new modeling approach to observed non-uniform plate growth, I tested three different boundary conditions in mid-ocean ridge models. All three cases show 
+Based on the existing modeling techniques for simulating magmatism at the ridge axis and fautling, the models driven by force boundary conditions reproduce faulting styles corresponding to varying degrees of magmatism at the spreading center. They also exhibit significant differences in terms of mean plate velocities, suggesting great potential for further studies on non-uniform plate growth. In the models with prescribed boundary velocities, mean plate velocities remain constant. Varying the magmatism at the spreading center does not affect the plate speed. Thus, the observed variable rates of plate growth at mid-ocean ridge cannot be explained by existing kinematic models. When the residual forces, the sum of internal and boundary forces, vanish on the side boundaries, mean plate velocities are nearly constant as expected but also shows time variability of a magnitude less then 0.2 cm/yr. The correspondence between the faulting styles and the degree of axial magmatism is still reproduced. The unexpected temporal variation in mean plate speed appears originating from the faulting since the small changes in plate speed is only observed in the plate containing a fault. %Therefore, $\overline{\boldsymbol{v}_{x}}$ is more strongly affected by faulting style than kinematic models. 
+Models with a constant boundary force show greater variability in mean plate velocities, more than 1 cm/yr over 1 My, than in the kinematic models and those with zero residual boundary force. This magnitude of variability is greater than one third of original plate velocity regardless of faulting styles. These results suggest that force-driven model are a promising tool to investigate observed non-uniform plate growth. However, the employed numerical technique re-creates a mesh many times during a simulation and creates noises in the mean plate velocity records. Remeshing intervals and time step sizes were adjusted in a few different ways to reduce remeshing-induced noises. Although none of the tested treatments could successfully diminish remeshing noises without introducing other complications, some look promising and deserve a further study.
 
 \bibliography{references}     % before changing bibliographystyle, remove *.bbl files in your working directory
 \bibliographystyle{agsm.bst}  % the closest style to the University of Memphis Thesis Style Guide
